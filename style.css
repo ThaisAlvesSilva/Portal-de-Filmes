@@ -3,10 +3,10 @@ body{
     width:100%;
     background: rgb(221, 208, 218);
 }
+
 header, .navbar, footer{
     background: #a596a5;
 }
-
 
 .navbar-nav a{
     color:black;
@@ -14,19 +14,13 @@ header, .navbar, footer{
     padding:3px;
 }
 
-
 section{
     margin-top: 50px;;
 }
 
 .carrossel{
-    margin-left: 90px;
-    padding-left: 60px;
-    padding-bottom: 60px;
-}
-
-.entrevistaDoFilme{
-    width: 100%;
+    margin-left: 100px;
+    padding-bottom: 40px;
 }
 
 .lancamento{
@@ -38,13 +32,9 @@ section{
     margin-bottom: 50px;
 }
 
-.main{
+.main, .imagemNovidades, .imagemDestaque, .entrevistaDoFilme{
     width: 100%;
     height: 100%;
-}
-
-.textoDestaque{
-    margin-left: 12px;
 }
 
 .lupa{
@@ -59,11 +49,6 @@ section{
 }
 .grid_cor1{
     margin-left: 100px;;
-}
-
-.imagensNovidades{
-    width: 100%;
-    height: 100%;
 }
 
 .logo{
@@ -83,7 +68,6 @@ section{
 }
 
 
-
 .botoesNovidades{
     size:10px;
     border-radius: 15px;
@@ -93,6 +77,7 @@ section{
 .textoEditorial{
     margin-left: 10px;
 }
+
 
 .imagemNovidades{
     width:100%;
@@ -121,18 +106,6 @@ section{
     width: 200px;
     margin-left: 280px;
 
-}
-
-
-
-.imagemDestaque{
-     width: 100%;
-     height: 100%;
-     margin-top:10px;
-}
-
-hr{
-    color: black;
 }
 
 .redesSociais{
