@@ -1,0 +1,192 @@
+body{
+    margin:0;
+    width:100%;
+    background: rgb(221, 208, 218);
+}
+header, .navbar, footer{
+    background: #a596a5;
+}
+
+
+.navbar-nav a{
+    color:black;
+    margin-bottom: 10px;
+    padding:3px;
+}
+
+
+section{
+    margin-top: 50px;;
+}
+
+.carrossel{
+    margin-left: 90px;
+    padding-left: 60px;
+    padding-bottom: 60px;
+}
+
+.entrevistaDoFilme{
+    width: 100%;
+}
+
+.lancamento{
+    margin-top: 120px;
+}
+
+.textoLancamento{
+    margin-left:400px;
+    margin-bottom: 50px;
+}
+
+.main{
+    width: 100%;
+    height: 100%;
+}
+
+.textoDestaque{
+    margin-left: 12px;
+}
+
+.lupa{
+    margin-right: 10px;
+}
+
+.form-control{
+    color:red;
+    background: #a596a5;
+    border-color: black;
+    
+}
+.grid_cor1{
+    margin-left: 100px;;
+}
+
+.imagensNovidades{
+    width: 100%;
+    height: 100%;
+}
+
+.logo{
+    width: 100px;
+    padding: 5px;
+}
+
+.lancamentos, .entrevistas{
+    background-color: #f3e6e6;
+}
+
+
+
+.card{
+    border:none;
+    background: none;
+}
+
+
+
+.botoesNovidades{
+    size:10px;
+    border-radius: 15px;
+    padding:5px;
+}
+
+.textoEditorial{
+    margin-left: 10px;
+}
+
+.imagemNovidades{
+    width:100%;
+}
+
+.entrevistaDoFilme{
+    height: 100%;
+}
+.maisFilmes{
+    margin-left: 960px;
+    margin-top: 30px;
+}
+
+.destaque{
+    margin-top: 50px;
+}
+
+.dropdown-toggle{
+    border-color: black;
+    width: 100%;
+    background: rgb(221, 208, 218);
+}
+
+.dropdown{
+    background-color: none;
+    width: 200px;
+    margin-left: 280px;
+
+}
+
+
+
+.imagemDestaque{
+     width: 100%;
+     height: 100%;
+     margin-top:10px;
+}
+
+hr{
+    color: black;
+}
+
+.redesSociais{
+    margin-left:620px;
+}
+
+.footer {
+    background: #c5b4c5;
+    color: black;
+    font-size: 0.8em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center; 
+    margin-top:50px;
+    padding: 2px;
+}
+
+.footer p{
+    margin: 0 auto;
+}
+
+@media screen and (max-width:768px){
+    .dropdown{
+        margin-left: 60px;
+    } 
+
+    .maisFilmes{
+        margin-left: 70px;
+        margin-top: 20px;
+    }
+    .avaliacoes{
+        margin: 1px;
+        margin-top: 30px;
+    }
+
+    .textoDestaque{
+        font-size:30px;
+        margin-left:30px;
+    }
+    .carrossel{
+        margin:5px;
+    }
+    .cards{
+        margin:20px;
+    }
+    .footer{
+        width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+
+    .logo{
+       padding:2px;
+    }
+}
+
