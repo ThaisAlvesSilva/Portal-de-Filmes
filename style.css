@@ -137,6 +137,10 @@ section{
     margin: 0 auto;
 }
 
+.sobre{
+    
+}
+
 @media screen and (max-width:768px){
     .dropdown{
         margin-left: 75px;
@@ -216,24 +220,25 @@ section{
         margin: 2px;
         margin-right: 20px; 
     }
+
+    .novidades{
+        padding:10px;
+    }
+
+    .sobre{
+        margin-top:30px;
+    }
+
+    .icones{
+        margin-left: 1px;
+    }
     
 
-    @media screen and (min-width:768px){
+    @media screen and (min-width:769px) and (max-width: 800px){
         
-
-        .carrossel{
-            height:100%;
-                
-        }
-    
-        .iframeLancamento{
-           
-            background-color:blue;
-        }
-        .carousel{
-            padding: 10px; 
-            margin: 2px;
-            margin-right: 20px; 
+        .textoLancamento{
+            margin-left: 100px;
+           color:blue;
         }
 
     }
