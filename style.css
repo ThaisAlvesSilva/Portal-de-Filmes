@@ -1,5 +1,4 @@
 body{
-    margin:0;
     width:100%;
     background: rgb(221, 208, 218);
 }
@@ -10,6 +9,7 @@ header, .navbar, footer{
 header{
     position:fixed;
     top:0;
+    padding:0;
     width:100%;
     z-index:999;
 }
@@ -37,11 +37,13 @@ section{
     height: 100%;
 }
 
+
 .lancamento{
     margin-top: 40px;
 }
 
 .textoLancamento{
+    margin-top: 100px;
     margin-left:400px;
     margin-bottom: 50px;
 }
@@ -71,7 +73,6 @@ section{
 }
 .testeLancamento{
     width: 100%;
-    background: blue;
 }
 
 
@@ -149,6 +150,7 @@ section{
 .sobre{
     
 }
+
 
 @media screen and (max-width:768px){
     .dropdown{
@@ -252,14 +254,16 @@ section{
         position:relative;
        
     }
+}
     
 
-    @media screen and (min-width:769px) and (max-width: 800px){
+    @media screen and (min-width:768px) and (max-width: 992px){
         
         .textoLancamento{
-            margin-left: 100px;
-           color:blue;
+            margin-top: 200px;
+            margin-left:200px;
         }
+       
 
     }
 
