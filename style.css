@@ -7,6 +7,15 @@ body{
 header, .navbar, footer{
     background: #a596a5;
 }
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:999;
+}
+.navbar{
+    margin-top:0;
+}
 
 .navbar-nav a{
     color:black;
@@ -29,7 +38,7 @@ section{
 }
 
 .lancamento{
-    margin-top: 120px;
+    margin-top: 40px;
 }
 
 .textoLancamento{
@@ -197,7 +206,7 @@ section{
 
     .textoLancamento{
         margin-left: 60px;
-        margin-top: 50px;
+        margin-top: 10px;
         margin-bottom: 10px;
     }
 
@@ -232,6 +241,17 @@ section{
     .icones{
         margin-left: 1px;
     }
+    .navItens{
+        margin-left:70px;
+    }
+    .logo{
+        width:20%;
+        height:30%;
+    }
+    header{
+        position:relative;
+       
+    }
     
 
     @media screen and (min-width:769px) and (max-width: 800px){
@@ -245,4 +265,3 @@ section{
 
 
 }
-
