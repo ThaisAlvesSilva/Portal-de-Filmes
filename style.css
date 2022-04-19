@@ -126,6 +126,13 @@ section{
 
 }
 
+#botaoepesquisa{
+    color: black;
+    border-color: rgb(221, 208, 218);
+    border-radius:5px;
+    padding:10px;
+}
+
 .redesSociais{
     margin-left:620px;
 }
