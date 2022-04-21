@@ -9,13 +9,12 @@
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
       <link rel="stylesheet" href="style.css">
   </head>
-
   <body>
 
     <header class="header">
       <nav class="navbar navbar-expand-lg">
         <img src="imagens/logoFilme.png" class="logo">
-        <div class="col-8 col-sm-4 col-md-6 col-xs-8 col-lg-9 navItens">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-8 navItens">
           <div class="navbar-nav justify-content-center">
             <a class="nav-link active" href="#lançamentos">Lançamentos |</a>
             <a class="nav-link" href="#destaque">em destaque |</a>
@@ -24,15 +23,17 @@
             <a class="nav-link" href="#novidades">novidades </a>
           </div>
         </div>
-        <div class="col-12 col-sm-4 col-md-4 col-xs-4 col-lg-3 caixaDePesquisa">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 caixaDePesquisa">
           <div class="div1">
             <div class="card-body row no-gutters align-items-center">
               <div class="lupa">
-                <i class="fa fa-search"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
               </div>
-                <div class="col pesquisa">
+                <div class="col">
                   <input id ="botaoepesquisa" style="background-color: rgb(221, 208, 218)"="form-control" type="search" placeholder="Pesquisar filme">
-              </div>  
+                </div>  
             </div>
           </div>
           
@@ -212,7 +213,7 @@
       <section class="row ultimasAvaliacoes" id = "ultimasAvaliacoes">
         <h1 class="textoAvaliacoes">Ultimas avaliações</h1>  
         <div class = "row avaliacoes">
-          <div class="col-12 col-sm-6 col-md-3 col-lg-4">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-4">
             <div class="row avaliacoes">
               <div class="col-12 col-sm-6 col-md-1 col-lg-2">
                   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
@@ -220,8 +221,8 @@
                   </svg>
               </div>
               <div class="col-12 col-sm-6 col-md-3 col-lg-10">
-                  <p><b>Joana de Souza </b> </p>
-                  <p><b>Avaliação: </b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum.</p>
+                  <p><b>Ticiana Amaral </b> </p>
+                  <p><b>Avaliação: </b> Gostaria de deixar a minha visão sobre este filme incrível, que me surpreendeu muito e tem muito a ver com a minha CAUSA. Um filme de 3 horas que prendeu minha atenção do início ao fim, com certeza será campeão de premiação, pois muito se pode fazer analogia com os comportamentos humanos, mesmo sendo considerado um filme de heróis.</p>
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
                   </svg>
@@ -231,17 +232,17 @@
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
                   </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
-                    <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
-                  </svg> 
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
-                    <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
                   </svg> 
               </div>  
             </div>
                       
           </div>
-          <div class="col-12 col-sm-6 col-md-3 col-lg-4">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-4">
             <div class="row avaliacoes">
               <div class="col-12 col-sm-6 col-md-3 col-lg-2">
                   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
@@ -249,8 +250,8 @@
                   </svg>
               </div>
               <div class="col-12 col-sm-6 col-md-6 col-lg-10">
-                  <p><b>Pedro Castilho </b>  </p>
-                  <p><b>Avaliação:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum.</p>
+                  <p><b>Cari Favarin </b>  </p>
+                  <p><b>Avaliação:</b> Tecnicamente falando, o filme tem uma atmosfera escura,  sombria e bastante adulta , totalmente alinhada com o roteiro. Acho que essa linha que foi seguida da Gotham noir, deprê, podre , psicopata e sangrenta, combina com a história do Batman, pra mim faz todo sentido e me agrada muito. Matt Reeves não chegou na perfeição mas está no caminho .</p>
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
                   </svg>
@@ -278,8 +279,8 @@
                   </svg>
               </div>
               <div class="col-12 col-sm-6 col-md-3 col-lg-10">
-                  <p><b>Marcos Castro</b>  </p>
-                  <p><b>Avaliação:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum.</p>
+                  <p><b>Lucas Sá</b>  </p>
+                  <p><b>Avaliação:</b> Um dos melhores filmes de super-herói que eu já assisti, na minha opinião tudo estava incrível nele. A fotografia e trilha sonora foram impecáveis, conseguiram trazer uma música antiga do "Nirvana" e encaixou perfeitamente, perdi o número de vezes que do nada comecei a cantar "something in the way hmmmmm". .</p>
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
                   </svg>
@@ -392,7 +393,7 @@
               <div class = "row">
                  <div class="sobre">
                   <h1><b>Sobre</b></h1>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla at risus. Quisque purus magna, auctor et, sagittis ac, posuere eu, lectus. Nam mattis, felis ut adipiscing</p>
+                  <p>Este site tem como principal objetivo disponibilizar ao público os principais lançamento do momento, comentários do publico em determinados filmes, entrevistas/making of e também noticias sobre os principais canais de streaming.</p>
                   <h1><b>Editorial</b></h1>
                   <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                       <div class="row">
