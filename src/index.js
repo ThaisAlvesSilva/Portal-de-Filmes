@@ -27,11 +27,14 @@ function carregaAvaliacoes(){
 
 function filtraFilmes(categoria){
     
-    if(categoria=='a'){
-        document.getElementById("img1").src = "../imagens/passaros.jpg"
-    }else if(categoria == 'r'){
-        document.getElementById("img1").src = "../imagens/genioIndomavel.jpg"
-    }else{
-        document.getElementById("img1").src = "../imagens/pulpFiction.jpg"
-    }
+    for(var i=1;i<=4;i++){
+        if(categoria=='a'){
+            document.getElementById("img" + i).src = "../imagens/passaros.jpg"
+            document.getElementById("avaNome"+i).textContent = "Teste";
+        }else if(categoria == 'r'){
+            document.getElementById("img" + i).src = "../imagens/pulpFiction.jpg"
+        }else{
+            document.getElementById("img" + i).src = "../imagens/autoDaCompadecida.jpg"
+        }
+    }   
 }
