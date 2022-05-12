@@ -8,6 +8,7 @@
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
       <link rel="stylesheet" href="style.css">
+      <script src="index.js"></script>
   </head>
   <body>
 
@@ -178,9 +179,9 @@
                 Categoria: TODOS
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Aventura</a>
-                <a class="dropdown-item" href="#">Romance</a>
-                <a class="dropdown-item" href="#">Comédia</a>
+                <a class="dropdown-item" id="aventura" href="#">Aventura</a>
+                <a class="dropdown-item" id="Romance" href="#">Romance</a>
+                <a class="dropdown-item" id="Comedia" href="#">Comédia</a>
               </div>
             </div>
           </div>
@@ -204,8 +205,8 @@
                
             </div>
         </div>
-        <div class = "row">
-          <button type="button" class="btn btn-secondary maisFilmes"> + Carregar mais filmes</button>
+        <div class = "row" >
+          <button type="button" id ="maisFilmes" class="btn btn-secondary maisFilmes"> + Carregar mais filmes</button>
         </div>
 
       </section>
@@ -302,7 +303,7 @@
                       
           </div>
         <div class = "row">
-          <button type="button" class="btn btn-secondary maisFilmes"> + Carregar mais avaliações</button>
+          <button type="button" id="maisAvaliacoes" class="btn btn-secondary maisFilmes"> + Carregar mais avaliações</button>
         </div>
       </div>
 
