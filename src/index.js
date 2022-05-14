@@ -1,4 +1,5 @@
 $(document).ready(inicia);
+
 var categoria = 't';
 var atualizou;
 var filmes = {
@@ -124,10 +125,10 @@ function filtraFilmes(categoria, nomeCategoria){
     $('#todos').css('visibility', 'visible');
     this.categoria = categoria;
     
-    mudaFilmes(categoria, 0);
+    alteraFilmes(categoria, 0);
 }
 
-function mudaFilmes(categoria, pos){
+function alteraFilmes(categoria, pos){
     for(var i=0;i<4;i++, pos++){
         let img = '#img' + i;
         if(categoria == 'c'){
@@ -150,18 +151,15 @@ function carregaFilmes(){
         var pos = 0;
         atualizou--;
     }
-    console.log(categoria);
-    console.log(pos);
-    console.log(atualizou);
 
     if(categoria == 'c'){
-        mudaFilmes(categoria, pos);
+        alteraFilmes(categoria, pos);
     }else if(categoria == 'a'){
-        mudaFilmes(categoria, pos);
+        alteraFilmes(categoria, pos);
     }else if(categoria == 'r'){
-        mudaFilmes(categoria, pos);
+        alteraFilmes(categoria, pos);
     }else{
-        mudaFilmes(categoria, pos);
+        alteraFilmes(categoria, pos);
     }
 }
 
