@@ -17,16 +17,16 @@ var filmes = {
             "src":  "../imagens/Comedia/asBranquelas.jpg"
         },
         {
-            "src":  "../imagens/Comedia/oPalhaco.jpg"
+            "src":  "../imagens/Comedia/sosmulheres.jpg"
         },
         {
-            "src":  "../imagens/Comedia/oPalhaco.jpg"
+            "src":  "../imagens/Comedia/debiELoide.jpg"
         },
         {
-            "src":  "../imagens/Comedia/oPalhaco.jpg"
+            "src":  "../imagens/Comedia/LisbelaEoPrisioneiro.jpg"
         },
         {
-            "src":  "../imagens/Comedia/oPalhaco.jpg"
+            "src":  "../imagens/Comedia/genteGrande.jpg"
         },
     ],
     "animacao":[
@@ -34,14 +34,27 @@ var filmes = {
             "src":  "../imagens/Animacao/beeMovie.jpg"
         },
         {
-            "src":  "../imagens/Animacao/oSegredoDosBichos.jpg"
-        },
-        {
-            "src":  "../imagens/Animacao/toyStory.jpg"
+            "src":  "../imagens/Animacao/rio.jpg"
         },
         {
             "src":  "../imagens/Animacao/reiLeao.jpg"
+        },
+        {
+            "src":  "../imagens/Animacao/shrek.jpg"
+        },
+        {
+            "src":  "../imagens/Animacao/oSegredoDosBichos.jpg"
+        },
+        {
+            "src":  "../imagens/Animacao/Madagascar.jpg"
+        },
+        {
+            "src":  "../imagens/Animacao/aEradoGelo.jpg"
+        },
+        {
+            "src":  "../imagens/Animacao/toyStory.jpg"
         }
+
     ],
     "romance":[
         {
@@ -55,6 +68,18 @@ var filmes = {
         },
         {
             "src":  "../imagens/Romance/titanic.jpg"
+        },
+        {
+            "src":  "../imagens/Romance/questãoDeTempo.jpg"
+        },
+        {
+            "src":  "../imagens/Romance/after.jpg"
+        },
+        {
+            "src":  "../imagens/Romance/umAmorParaRecordar.jpg"
+        },
+        {
+            "src":  "../imagens/Romance/porLugaresIncriveis.jpg"
         }
     ],
     "todos":[
@@ -68,7 +93,7 @@ var filmes = {
             "src":  "../imagens/Romance/comoEuEra.jpg"
         },
         {
-            "src":  "../imagens/pulpFiction.jpg"
+            "src":  "../imagens/Ficcao/bladeRunner.jpg"
         },
         {
             "src":  "../imagens/Comedia/oPalhaco.jpg"
@@ -110,6 +135,9 @@ function inicia(){
         filtraFilmes('r', 'Romance');
     });
 
+    $("#Comedia").click(function(){
+        filtraFilmes('c', 'Comédia');
+    });
     $("#Comedia").click(function(){
         filtraFilmes('c', 'Comédia');
     });
