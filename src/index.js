@@ -23,11 +23,23 @@ var filmes = {
             "src":  "../imagens/Comedia/debiELoide.jpg"
         },
         {
+            "src":  "../imagens/Comedia/esposaDeMentirinha.jpg"
+        },
+        {
             "src":  "../imagens/Comedia/LisbelaEoPrisioneiro.jpg"
         },
         {
-            "src":  "../imagens/Comedia/genteGrande.jpg"
+            "src":  "../imagens/Comedia/vaiQueCola.jpg"
         },
+        {
+            "src":  "../imagens/Comedia/badBoys.jpg"
+        },
+        {
+            "src":  "../imagens/Comedia/vaiQueDaCerto.jpg"
+        },
+        {
+            "src":  "../imagens/Comedia/americanPie.png"
+        }
     ],
     "animacao":[
         {
@@ -52,16 +64,40 @@ var filmes = {
             "src":  "../imagens/Animacao/aEradoGelo.jpg"
         },
         {
+            "src":  "../imagens/Animacao/a fugaDasgalinhas.jpg"
+        },
+        {
+            "src":  "../imagens/Animacao/procurandoNemo.jpg"
+        },
+        {
+            "src":  "../imagens/Animacao/bobEsponja.jpg"
+        },
+        {
+            "src":  "../imagens/Animacao/divertidamente.jpg"
+        },
+        {
             "src":  "../imagens/Animacao/toyStory.jpg"
-        }
+        },
 
     ],
     "romance":[
         {
+            "src":  "../imagens/Romance/eoVentoLevou.jpg"
+        },
+        {
+            "src":  "../imagens/Romance/questãoDeTempo.jpg"
+        },
+        {
+            "src":  "../imagens/Romance/umAmorParaRecordar.jpg"
+        },
+        {
+            "src":  "../imagens/Romance/meuPrimeiroAmor.jpg"
+        },
+        {
             "src":  "../imagens/Romance/comoEuEra.jpg"
         },
         {
-            "src":  "../imagens/Romance/simplesmenteAcontece.jpg"
+            "src":  "../imagens/Romance/after.jpg"
         },
         {
             "src":  "../imagens/Romance/queridoJohn.jpg"
@@ -70,16 +106,54 @@ var filmes = {
             "src":  "../imagens/Romance/titanic.jpg"
         },
         {
-            "src":  "../imagens/Romance/questãoDeTempo.jpg"
+            "src":  "../imagens/Romance/simplesmenteAcontece.jpg"
         },
         {
-            "src":  "../imagens/Romance/after.jpg"
+            "src":  "../imagens/Romance/umaLindaMulher.jpg"
         },
         {
-            "src":  "../imagens/Romance/umAmorParaRecordar.jpg"
+            "src":  "../imagens/Romance/teAmareiParaSempre.jpg"
         },
         {
-            "src":  "../imagens/Romance/porLugaresIncriveis.jpg"
+            "src":  "../imagens/Romance/casaBlanca.jpg"
+        }
+    ],
+    "ficcao":[
+        {
+            "src":  "../imagens/Ficcao/aChegada.jpg"
+        },
+        {
+            "src":  "../imagens/Ficcao/aOrigem.jpg"
+        },
+        {
+            "src":  "../imagens/Ficcao/oDuplo.jpg"
+        },
+        {
+            "src":  "../imagens/Ficcao/laranjaMecanica.jpg"
+        },
+        {
+            "src":  "../imagens/Ficcao/madMax.jpg"
+        },
+        {
+            "src":  "../imagens/Ficcao/matrix.jpg"
+        },
+        {
+            "src":  "../imagens/Ficcao/interstellar.jpg"
+        },
+        {
+            "src":  "../imagens/Ficcao/bladeRunner.jpg"
+        },
+        {
+            "src":  "../imagens/Ficcao/aGuerraDoAmanha.jpg"
+        },
+        {
+            "src":  "../imagens/Ficcao/upGrade.jpg"
+        },
+        {
+            "src":  "../imagens/Ficcao/venom.jpg"
+        },
+        {
+            "src":  "../imagens/Ficcao/vida.jpeg"
         }
     ],
     "todos":[
@@ -90,7 +164,7 @@ var filmes = {
             "src":  "../imagens/Animacao/beeMovie.jpg"
         },
         {
-            "src":  "../imagens/Romance/comoEuEra.jpg"
+            "src":  "../imagens/Romance/eoVentoLevou.jpg"
         },
         {
             "src":  "../imagens/Ficcao/bladeRunner.jpg"
@@ -114,7 +188,7 @@ var filmes = {
             "src":  "../imagens/Romance/queridoJohn.jpg"
         },
         {
-            "src":  "../imagens/Animacao/toyStory.jpg"
+            "src":  "../imagens/Ficcao/aChegada.jpg"
         },
         {
             "src":  "../imagens/Comedia/minhaMaeEumaPeca.jpg"
@@ -138,8 +212,8 @@ function inicia(){
     $("#Comedia").click(function(){
         filtraFilmes('c', 'Comédia');
     });
-    $("#Comedia").click(function(){
-        filtraFilmes('c', 'Comédia');
+    $("#Ficcao").click(function(){
+        filtraFilmes('f', 'Ficção');
     });
     $("#todos").click(function(){
         filtraFilmes('t', 'Todos');
@@ -148,7 +222,7 @@ function inicia(){
 
 
 function filtraFilmes(categoria, nomeCategoria){
-    
+    atualizou = 0;
     $('#dropdownMenuButton').text('Categoria: ' + nomeCategoria);
     $('#todos').css('visibility', 'visible');
     this.categoria = categoria;
@@ -165,6 +239,8 @@ function alteraFilmes(categoria, pos){
             $(img).prop('src', filmes.animacao[pos].src);
         }else if(categoria == 'r'){
             $(img).prop('src', filmes.romance[pos].src);
+        }else if(categoria == 'f'){
+            $(img).prop('src', filmes.ficcao[pos].src);
         }else{
             $(img).prop('src', filmes.todos[pos].src);
         }
@@ -176,19 +252,14 @@ function carregaFilmes(){
         var pos = 4;
         atualizou++;
     }else if(atualizou == 1){
+        var pos = 8;
+        atualizou++;
+    }else if(atualizou == 2){
         var pos = 0;
-        atualizou--;
+        atualizou = 0;
     }
 
-    if(categoria == 'c'){
-        alteraFilmes(categoria, pos);
-    }else if(categoria == 'a'){
-        alteraFilmes(categoria, pos);
-    }else if(categoria == 'r'){
-        alteraFilmes(categoria, pos);
-    }else{
-        alteraFilmes(categoria, pos);
-    }
+    alteraFilmes(categoria,pos);
 }
 
 
