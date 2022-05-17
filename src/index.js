@@ -49,10 +49,10 @@ var filmes = {
             "src":  "../imagens/Animacao/rio.jpg"
         },
         {
-            "src":  "../imagens/Animacao/reiLeao.jpg"
+            "src":  "../imagens/Animacao/shrek.jpg"
         },
         {
-            "src":  "../imagens/Animacao/shrek.jpg"
+            "src":  "../imagens/Animacao/reiLeao.jpg"
         },
         {
             "src":  "../imagens/Animacao/oSegredoDosBichos.jpg"
@@ -194,12 +194,52 @@ var filmes = {
             "src":  "../imagens/Comedia/minhaMaeEumaPeca.jpg"
         }
     ]
-
 }
+
+var avaliacoes = [
+    {
+        "nome": "XXXX",
+        "avaliacao": "testex",
+        "estrelas": 5
+    },
+    {
+        "nome": "YYYYY",
+        "avaliacao": "testey",
+        "estrelas": 2
+    },
+    {
+        "nome": "ZZZZ",
+        "avaliacao": "testez",
+        "estrelas": 3
+    }
+]
+
+var iframes = [
+    {
+        "src": "https://www.youtube.com/embed/Ex01UH4hApA",
+        "filme": "O auto da compadecida",
+        "diretor": "lili",
+        "roteiro": "xxxxx"
+    },
+    {
+        "src": "https://www.youtube.com/embed/Ex01UH4hApA",
+        "filme": "testey",
+        "diretor": "lele",
+        "roteiro": "xxxxx"
+    },
+    {
+        "src": "https://www.youtube.com/embed/Ex01UH4hApA",
+        "filme": "testez",
+        "diretor": "lala",
+        "roteiro": "xxxxx"
+    }
+]
+
 function inicia(){
     atualizou = 0;
     $("#maisFilmes").click(carregaFilmes);
-    $("maisAvaliacoes").click(carregaFilmes);
+    $("#maisFilmesVideos").click(carregaFilmesVideos);
+    $("#maisAvaliacoes").click(carregaAvaliacoes);
 
     $("#aventura").click(function(){
         filtraFilmes('a', 'Animação');
@@ -219,7 +259,6 @@ function inicia(){
         filtraFilmes('t', 'Todos');
     });
 }
-
 
 function filtraFilmes(categoria, nomeCategoria){
     atualizou = 0;
@@ -262,44 +301,24 @@ function carregaFilmes(){
     alteraFilmes(categoria,pos);
 }
 
-
-/* window.addEventListener("load", inicia);
-        
-function inicia() {
-    document.getElementById("maisFilmes").addEventListener("click",carregaFilmes);
-    document.getElementById("maisAvaliacoes").addEventListener("click",carregaAvaliacoes);
-
-    document.getElementById("aventura").addEventListener("click",function(){
-        filtraFilmes('a');
-    });
-
-    document.getElementById("Romance").addEventListener("click",function(){
-        filtraFilmes('r');
-    });
-
-    document.getElementById("Comedia").addEventListener("click", function(){
-        filtraFilmes('c');
-    });
-}
-
-function carregaFilmes(){
-    //alert("filmes");
+function carregaFilmesVideos(){
+    console.log("teste")
+    for(var i = 0; i <3;i++){
+        $("#iframe" + i).prop('src', iframes[i].src);
+        $("#iframeFilme" + i).html("<strong>Filme:</strong> "+iframes[i].filme);
+        $("#iframeDiretor" + i).html("<strong>Diretor:</strong> "+iframes[i].diretor);
+        $("#iframeRoteiro" + i).html("<strong>Roteiro:</strong> "+iframes[i].roteiro);
+    }
+    
 }
 
 function carregaAvaliacoes(){
-    //alert("avaliacoes");
+    for(var i = 0; i <3; i++){
+        console.log(avaliacoes[i].nome);
+        $("#avaNome"+i).prop('textContent', avaliacoes[i].nome);
+        $("#avaComentario"+i).prop('textContent', avaliacoes[i].avaliacao);
+        //document.getElementById("avaNome"+i).textContent = avaliacoes[i].nome;
+    }
 }
 
-function filtraFilmes(categoria){
-    
-    for(var i=1;i<=4;i++){
-        if(categoria=='a'){
-            document.getElementById("img" + i).src = "../imagens/passaros.jpg"
-            document.getElementById("avaNome"+i).textContent = "Teste";
-        }else if(categoria == 'r'){
-            document.getElementById("img" + i).src = "../imagens/pulpFiction.jpg"
-        }else{
-            document.getElementById("img" + i).src = "../imagens/autoDaCompadecida.jpg"
-        }
-    }   
-} */
+
