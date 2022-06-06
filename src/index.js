@@ -1,207 +1,21 @@
 $(document).ready(inicia);
-
+/* http://api.themoviedb.org/3/movie/157336/videos?api_key=5df9d42e52753432b65c92f566de9ae7 */
+var API_KEY = `5df9d42e52753432b65c92f566de9ae7`;
 var categoria = 't';
 var atualizou;
+var atualizouVideo;
 var imagePath;
 var filmesAPI = [];
 var pos = 0;
+var videos = [];
+var posVideos = 0;
+var dadosDiretores = [];
+var dadosRoteiro = [];
 
-var filmesComedia = [];
+var filmesDrama = [];
 var filmesAnimacao = [];
-var filmesRomance = [];
-var filmes = {
-    "comedia":[
-        {
-            "src":  "../imagens/Comedia/autoDacompadecida.jpg"
-        },
-        {
-            "src":  "../imagens/Comedia/oPalhaco.jpg"
-        },
-        {
-            "src":  "../imagens/Comedia/minhaMaeEumaPeca.jpg"
-        },
-        {
-            "src":  "../imagens/Comedia/asBranquelas.jpg"
-        },
-        {
-            "src":  "../imagens/Comedia/sosmulheres.jpg"
-        },
-        {
-            "src":  "../imagens/Comedia/debiELoide.jpg"
-        },
-        {
-            "src":  "../imagens/Comedia/esposaDeMentirinha.jpg"
-        },
-        {
-            "src":  "../imagens/Comedia/LisbelaEoPrisioneiro.jpg"
-        },
-        {
-            "src":  "../imagens/Comedia/vaiQueCola.jpg"
-        },
-        {
-            "src":  "../imagens/Comedia/badBoys.jpg"
-        },
-        {
-            "src":  "../imagens/Comedia/vaiQueDaCerto.jpg"
-        },
-        {
-            "src":  "../imagens/Comedia/americanPie.png"
-        }
-    ],
-    "animacao":[
-        {
-            "src":  "../imagens/Animacao/beeMovie.jpg"
-        },
-        {
-            "src":  "../imagens/Animacao/rio.jpg"
-        },
-        {
-            "src":  "../imagens/Animacao/shrek.jpg"
-        },
-        {
-            "src":  "../imagens/Animacao/reiLeao.jpg"
-        },
-        {
-            "src":  "../imagens/Animacao/oSegredoDosBichos.jpg"
-        },
-        {
-            "src":  "../imagens/Animacao/Madagascar.jpg"
-        },
-        {
-            "src":  "../imagens/Animacao/aEradoGelo.jpg"
-        },
-        {
-            "src":  "../imagens/Animacao/a fugaDasgalinhas.jpg"
-        },
-        {
-            "src":  "../imagens/Animacao/procurandoNemo.jpg"
-        },
-        {
-            "src":  "../imagens/Animacao/bobEsponja.jpg"
-        },
-        {
-            "src":  "../imagens/Animacao/divertidamente.jpg"
-        },
-        {
-            "src":  "../imagens/Animacao/toyStory.jpg"
-        },
+var filmesAcao = [];
 
-    ],
-    "romance":[
-        {
-            "src":  "../imagens/Romance/eoVentoLevou.jpg"
-        },
-        {
-            "src":  "../imagens/Romance/questãoDeTempo.jpg"
-        },
-        {
-            "src":  "../imagens/Romance/umAmorParaRecordar.jpg"
-        },
-        {
-            "src":  "../imagens/Romance/meuPrimeiroAmor.jpg"
-        },
-        {
-            "src":  "../imagens/Romance/comoEuEra.jpg"
-        },
-        {
-            "src":  "../imagens/Romance/after.jpg"
-        },
-        {
-            "src":  "../imagens/Romance/queridoJohn.jpg"
-        },
-        {
-            "src":  "../imagens/Romance/titanic.jpg"
-        },
-        {
-            "src":  "../imagens/Romance/simplesmenteAcontece.jpg"
-        },
-        {
-            "src":  "../imagens/Romance/umaLindaMulher.jpg"
-        },
-        {
-            "src":  "../imagens/Romance/teAmareiParaSempre.jpg"
-        },
-        {
-            "src":  "../imagens/Romance/casaBlanca.jpg"
-        }
-    ],
-    "ficcao":[
-        {
-            "src":  "../imagens/Ficcao/aChegada.jpg"
-        },
-        {
-            "src":  "../imagens/Ficcao/aOrigem.jpg"
-        },
-        {
-            "src":  "../imagens/Ficcao/oDuplo.jpg"
-        },
-        {
-            "src":  "../imagens/Ficcao/laranjaMecanica.jpg"
-        },
-        {
-            "src":  "../imagens/Ficcao/madMax.jpg"
-        },
-        {
-            "src":  "../imagens/Ficcao/matrix.jpg"
-        },
-        {
-            "src":  "../imagens/Ficcao/interstellar.jpg"
-        },
-        {
-            "src":  "../imagens/Ficcao/bladeRunner.jpg"
-        },
-        {
-            "src":  "../imagens/Ficcao/aGuerraDoAmanha.jpg"
-        },
-        {
-            "src":  "../imagens/Ficcao/upGrade.jpg"
-        },
-        {
-            "src":  "../imagens/Ficcao/venom.jpg"
-        },
-        {
-            "src":  "../imagens/Ficcao/vida.jpeg"
-        }
-    ],
-    "todos":[
-        {
-            "src":  "../imagens/Comedia/autoDaCompadecida.jpg"
-        },
-        {
-            "src":  "../imagens/Animacao/beeMovie.jpg"
-        },
-        {
-            "src":  "../imagens/Romance/eoVentoLevou.jpg"
-        },
-        {
-            "src":  "../imagens/Ficcao/bladeRunner.jpg"
-        },
-        {
-            "src":  "../imagens/Comedia/oPalhaco.jpg"
-        },
-        {
-            "src":  "../imagens/Romance/simplesmenteAcontece.jpg"
-        },
-        {
-            "src":  "../imagens/Animacao/toyStory.jpg"
-        },
-        {
-            "src":  "../imagens/pulpFiction.jpg"
-        },
-        {
-            "src":  "../imagens/Animacao/oSegredoDosBichos.jpg"
-        },
-        {
-            "src":  "../imagens/Romance/queridoJohn.jpg"
-        },
-        {
-            "src":  "../imagens/Ficcao/aChegada.jpg"
-        },
-        {
-            "src":  "../imagens/Comedia/minhaMaeEumaPeca.jpg"
-        }
-    ]
-}
 
 var avaliacoes = [
     {
@@ -221,27 +35,6 @@ var avaliacoes = [
     }
 ]
 
-var iframes = [
-    {
-        "src": "https://www.youtube.com/embed/Ex01UH4hApA",
-        "filme": "O auto da compadecida",
-        "diretor": "lili",
-        "roteiro": "xxxxx"
-    },
-    {
-        "src": "https://www.youtube.com/embed/Ex01UH4hApA",
-        "filme": "testey",
-        "diretor": "lele",
-        "roteiro": "xxxxx"
-    },
-    {
-        "src": "https://www.youtube.com/embed/Ex01UH4hApA",
-        "filme": "testez",
-        "diretor": "lala",
-        "roteiro": "xxxxx"
-    }
-]
-
 function inicia(){
 
     /* var API_KEY = `5df9d42e52753432b65c92f566de9ae7`;
@@ -249,8 +42,8 @@ function inicia(){
     imagePath = `https://image.tmdb.org/t/p/w500/`; */
 
     getFilmes();
-
     atualizou = 0;
+    atualizouVideo = 0;
     $("#maisFilmes").click(carregaFilmes);
     $("#maisFilmesVideos").click(carregaFilmesVideos);
     $("#maisAvaliacoes").click(carregaAvaliacoes);
@@ -259,12 +52,12 @@ function inicia(){
         filtraFilmes('a', 'Animação');
     });
 
-    $("#Romance").click(function(){
-        filtraFilmes('r', 'Romance');
+    $("#Acao").click(function(){
+        filtraFilmes('ac', 'Ação');
     });
 
-    $("#Comedia").click(function(){
-        filtraFilmes('c', 'Comédia');
+    $("#drama").click(function(){
+        filtraFilmes('d', 'Drama');
     });
     $("#todos").click(function(){
         filtraFilmes('t', 'Todos');
@@ -272,7 +65,7 @@ function inicia(){
 }
 
 function getFilmes(){
-    var API_KEY = `5df9d42e52753432b65c92f566de9ae7`;
+    
     URL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}`;
     imagePath = `https://image.tmdb.org/t/p/w500/`; 
 
@@ -308,27 +101,82 @@ function getFilmes(){
 
             classificaFilmes();
             carregaFilmes();
-            
+            for(let i = 0; i <filmesAPI.length; i++){
+                URL = `http://api.themoviedb.org/3/movie/${filmesAPI[i].id}/videos?api_key=${API_KEY}`;
+                fetch(URL)
+                    .then(res => res.json())
+                    .then(data => {
+                        videos.push(data.results[0]);
+                    })
+            }
+            //console.log(videos);
+
+            for(let i = 0; i <filmesAPI.length; i++){
+                URL = `http://api.themoviedb.org/3/movie/${filmesAPI[i].id}/credits?api_key=${API_KEY}`;
+                fetch(URL)
+                    .then(res => res.json())
+                    .then(dados => {
+                        var diretores = '';
+                        var roteiro = '';
+                        var qtdDiretor = 0;
+                        var qtdRoteiro = 0;
+                        var crew = dados.crew;
+                        for(var j = 0; j<crew.length; j++){
+                            if(crew[j].job == "Director" && qtdDiretor != 2){
+                                diretores += crew[j].name + ",";
+                            }else if(crew[j].job == "Screenplay" && qtdRoteiro != 2){
+                                roteiro += "," + crew[j].name;
+                            }
+                        }
+                        dadosDiretores.push(diretores);
+                        dadosRoteiro.push(roteiro);
+                            
+                    })
+            }
+            console.log(filmesAPI);
+            console.log(dadosDiretores);
         });
 }
 function classificaFilmes(){
     for(var i = 0;i<filmesAPI.length;i++){
         for(var j=0; j<filmesAPI[i].genre_ids.length; j++){
-            if(filmesAPI[i].genre_ids[j] == 35){
-                filmesComedia.push(filmesAPI[i]);
+            if(filmesAPI[i].genre_ids[j] == 18){
+                filmesDrama.push(filmesAPI[i]);
             }else if(filmesAPI[i].genre_ids[j] == 16){
                 filmesAnimacao.push(filmesAPI[i]);
-            }else if(filmesAPI[i].genre_ids[j] == 10749){
-                filmesRomance.push(filmesAPI[i]);
+            }else if(filmesAPI[i].genre_ids[j] == 28){
+                filmesAcao.push(filmesAPI[i]);
             }
-        } 
+        }   
     } 
-
-    console.log(filmesComedia);
-    console.log(filmesAnimacao);
-    console.log(filmesRomance);
 }
 
+
+function pesquisa(){
+    var pesquisa = $('#botaoepesquisa').val();
+    
+    URL = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=pt-BR&region=BR&query=${pesquisa}`;
+    var filmes = '';
+    fetch(URL)
+        .then(res => res.json())
+        .then(data => {
+            data.results.map(filme => {
+                if(filme.overview != ""){
+                    filmes += 
+                        `<div style="margin-top=300px;"class="col-12 col-sm-12 col-md-4 col-lg-4">
+                        <a href="https://www.themoviedb.org/movie/${filme.id}">
+                            <img style="width:200px;"src="${imagePath}${filme.poster_path}"</img>
+                        </a>
+                            <p><b> Filme:</b>  ${filme.title}</p>
+                            <p><b>Descrição:</b> ${filme.overview}</p>    
+                        </div> `
+                } 
+            })
+           // console.log(data.results);
+            
+            $('#corpoDoSite').html(filmes);
+        });
+}
 function filtraFilmes(categoria, nomeCategoria){
     atualizou = 0;
     $('#dropdownMenuButton').text('Categoria: ' + nomeCategoria);
@@ -343,12 +191,12 @@ function alteraFilmes(categoria, pos){
     var isCategory = false;
     for(var i=0;i<4;i++, pos++){
         let img = '#img' + i;
-        if(categoria == 'c'){
-            $(img).prop('src', `${imagePath}${filmesComedia[pos].poster_path}`);  
+        if(categoria == 'd'){
+            $(img).prop('src', `${imagePath}${filmesDrama[pos].poster_path}`);  
         }else if(categoria == 'a'){
             $(img).prop('src', `${imagePath}${filmesAnimacao[pos].poster_path}`); 
-        }else if(categoria == 'r'){
-            $(img).prop('src', `${imagePath}${filmesRomance[pos].poster_path}`); 
+        }else if(categoria == 'ac'){
+            $(img).prop('src', `${imagePath}${filmesAcao[pos].poster_path}`); 
         }else{  
             $(img).prop('src', `${imagePath}${filmesAPI[pos].poster_path}`);   
         }
@@ -386,6 +234,28 @@ function carregaFilmes(){
             pos = 0;
             atualizou = 0;
         }
+    }else if(categoria == 'ac'){
+        if(atualizou == 0){
+            pos = 4;
+            atualizou++;
+        }else if(pos < 20){
+            atualizou++;
+            pos+= 4;
+        }else{
+            pos = 0;
+            atualizou = 0;
+        }
+    }else if(categoria == 'd'){
+        if(atualizou == 0){
+            pos = 4;
+            atualizou++;
+        }else if(pos < 16){
+            atualizou++;
+            pos+= 4;
+        }else{
+            pos = 0;
+            atualizou = 0;
+        }
     }else{
         if(atualizou == 0){
                 pos = 4;
@@ -404,12 +274,30 @@ function carregaFilmes(){
 }
 
 function carregaFilmesVideos(){
-    console.log("teste")
-    for(var i = 0; i <3;i++){
-        $("#iframe" + i).prop('src', iframes[i].src);
-        $("#iframeFilme" + i).html("<strong>Filme:</strong> "+iframes[i].filme);
-        $("#iframeDiretor" + i).html("<strong>Diretor:</strong> "+iframes[i].diretor);
-        $("#iframeRoteiro" + i).html("<strong>Roteiro:</strong> "+iframes[i].roteiro);
+    
+    if(atualizouVideo == 0){
+        posVideos = 0;
+        atualizouVideo++;
+    }else if(posVideos < 42){
+        atualizouVideo++;
+        posVideos+= 3;
+    }else{
+        posVideos = 0;
+        atualizouVideo = 0;
+    }
+    var posV = posVideos;
+    console.log(posVideos);
+    for(var i = 0; i <3;i++, posV++){
+        var src = `https://www.youtube.com/embed/${videos[posV].key}`
+        $("#iframe" + i).prop('src', src);
+        $("#iframeFilme" + i).html("<strong>Filme:</strong> "+filmesAPI[posV].title);
+        $("#iframeDiretor" + i).html("<strong>Diretor:</strong> "+dadosDiretores[posV]);
+        if(dadosRoteiro[posV] != ""){
+            $("#iframeRoteiro" + i).html("<strong>Roteiro:</strong> "+dadosRoteiro[posV]);
+        }else{
+            $("#iframeRoteiro" + i).html("");
+        }
+        
     }
     
 }
