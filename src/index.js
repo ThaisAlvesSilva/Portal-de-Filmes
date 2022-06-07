@@ -16,7 +16,6 @@ var filmesDrama = [];
 var filmesAnimacao = [];
 var filmesAcao = [];
 
-
 var avaliacoes = [
     {
         "nome": "XXXX",
@@ -133,9 +132,10 @@ function getFilmes(){
                             
                     })
             }
-            console.log(filmesAPI);
-            console.log(dadosDiretores);
         });
+}
+function atualiza(){
+    location.reload();
 }
 function classificaFilmes(){
     for(var i = 0;i<filmesAPI.length;i++){
@@ -152,6 +152,8 @@ function classificaFilmes(){
 }
 
 
+
+
 function pesquisa(){
     var pesquisa = $('#botaoepesquisa').val();
     
@@ -162,14 +164,16 @@ function pesquisa(){
         .then(data => {
             data.results.map(filme => {
                 if(filme.overview != ""){
-                    filmes += 
-                        `<div style="margin-top=300px;"class="col-12 col-sm-12 col-md-4 col-lg-4">
-                        <a href="https://www.themoviedb.org/movie/${filme.id}">
-                            <img style="width:200px;"src="${imagePath}${filme.poster_path}"</img>
-                        </a>
-                            <p><b> Filme:</b>  ${filme.title}</p>
-                            <p><b>Descrição:</b> ${filme.overview}</p>    
+                    if(filme.poster_path != undefined){
+                        filmes += 
+                        `<div style="margin-top:80px; border-color:blue;"class="col-12 col-sm-12 col-md-4 col-lg-4">
+                            <a style="color:black;" href="https://www.themoviedb.org/movie/${filme.id}">
+                                <img style="width:200px;"src="${imagePath}${filme.poster_path}"</img>
+                                <p><b> Filme:</b>  ${filme.title}</p>
+                                <p><b>Descrição:</b> ${filme.overview}</p>
+                            </a>   
                         </div> `
+                    }
                 } 
             })
            // console.log(data.results);
@@ -186,22 +190,7 @@ function filtraFilmes(categoria, nomeCategoria){
     alteraFilmes(categoria, 0);
 }
 
-function alteraFilmes(categoria, pos){
-    //console.log(filmesAPI);
-    var isCategory = false;
-    for(var i=0;i<4;i++, pos++){
-        let img = '#img' + i;
-        if(categoria == 'd'){
-            $(img).prop('src', `${imagePath}${filmesDrama[pos].poster_path}`);  
-        }else if(categoria == 'a'){
-            $(img).prop('src', `${imagePath}${filmesAnimacao[pos].poster_path}`); 
-        }else if(categoria == 'ac'){
-            $(img).prop('src', `${imagePath}${filmesAcao[pos].poster_path}`); 
-        }else{  
-            $(img).prop('src', `${imagePath}${filmesAPI[pos].poster_path}`);   
-        }
-    }         
-}
+
 
 
 function carregaFilmes(){
@@ -271,6 +260,24 @@ function carregaFilmes(){
     
     console.log(atualizou, pos);
     alteraFilmes(categoria,pos);
+}
+
+
+function alteraFilmes(categoria, pos){
+    //console.log(filmesAPI);
+    var isCategory = false;
+    for(var i=0;i<4;i++, pos++){
+        let img = '#img' + i;
+        if(categoria == 'd'){
+            $(img).prop('src', `${imagePath}${filmesDrama[pos].poster_path}`);  
+        }else if(categoria == 'a'){
+            $(img).prop('src', `${imagePath}${filmesAnimacao[pos].poster_path}`); 
+        }else if(categoria == 'ac'){
+            $(img).prop('src', `${imagePath}${filmesAcao[pos].poster_path}`); 
+        }else{  
+            $(img).prop('src', `${imagePath}${filmesAPI[pos].poster_path}`); 
+        }
+    }         
 }
 
 function carregaFilmesVideos(){
