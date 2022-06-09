@@ -19,18 +19,18 @@ var videos = [];
 
 var avaliacoes = [
     {
-        "nome": "XXXX",
-        "avaliacao": "testex",
+        "nome": "Bruno Nascimento",
+        "avaliacao": "Pra quem jogou os games na era do Mega Drive/Dreamcast vai gostar muito do resultado final. O filme não é perfeito, mas deixa um sentimento de trabalho feito com carinho. Jim Carrey nasceu pra ser o Robotinic, e esse segundo filme acaba sendo uma mistura dos jogos Sonic 2, Sonic & Knucles e Sonic Adventure. As referências aos jogos são bem feitas, os efeitos estão muito bons, e os personagens se adequam bem ao cenário, dando a sensação de que eles realmente fazem parte do mundo real (belo trabalho de cores, luzes e sombras). Sonic 2 é melhor que o primeiro filme, o que aumenta o hype para um terceiro filme.",
         "estrelas": 5
     },
     {
-        "nome": "YYYYY",
-        "avaliacao": "testey",
+        "nome": "Nayara Rodrigues",
+        "avaliacao": "Filme bastante mentiroso. Aquela mulher que do nada, deixa o homem louco é sempre esse homens são ricos. Inspiração de 50 tons de cinza. Cenas de sexo até q são boas, mais a história fica a desejar. Várias partes q passam sem agente entender. Filme poderia sem melhor. Atores bonitos e com química também teve pontos.",
         "estrelas": 2
     },
     {
-        "nome": "ZZZZ",
-        "avaliacao": "testez",
+        "nome": "Mykaelle Ferreira",
+        "avaliacao": "Eu gostei do filme, composição sonora, arte visual, qualidade excepcional. Mas achei q poderia ter havido uma composição melhor no roteiro da historia em si, atores excepcionais na interpretação só faltou um final  bacana, embora sabemos q ira ter sequencia. Sabemos q a historia são baseado em 4 livros e que o volume de informações são grandes. confesso esta ansiosa pro próximo filme.",
         "estrelas": 3
     }
 ]
@@ -325,8 +325,8 @@ function carregaFilmesVideos(){
 function carregaAvaliacoes(){
     for(var i = 0; i <3; i++){
         console.log(avaliacoes[i].nome);
-        $("#avaNome"+i).prop('textContent', avaliacoes[i].nome);
-        $("#avaComentario"+i).prop('textContent', avaliacoes[i].avaliacao);
+        $("#avaNome"+i).html("<b>" + avaliacoes[i].nome + "</b>");
+        $("#avaComentario"+i).html("<b>Avaliação: </b>"+avaliacoes[i].avaliacao);
         //document.getElementById("avaNome"+i).textContent = avaliacoes[i].nome;
     }
 }
