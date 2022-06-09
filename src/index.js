@@ -158,7 +158,68 @@ function carregaLancamentos(){
                         $(`#sinopseL${j}`).html("<strong>Sinopse:</strong> "+filmes.results[j].overview);
                         j++;   
                     })
-            } 
+            }
+            carregaDadosDiretor();
+            carregaDadosELenco();
+        })
+}
+
+function carregaDadosDiretor(){
+    URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=pt-BR&region=BR`;
+    fetch(URL)
+        .then(res => res.json())
+        .then(filmes => {
+            //console.log(filmes.results);
+            for(var i = 0; i<3; i++){
+                URL = `http://api.themoviedb.org/3/movie/${filmes.results[i].id}/credits?api_key=${API_KEY}`;
+                var j = 0;
+                var k = 0;
+                fetch(URL)
+                .then(res => res.json())
+                .then(dados => {
+                    
+                    var diretores = '';
+                    var qtdDiretor = 0;
+                    var crew = dados.crew;
+                    for(var j = 0; j<crew.length; j++){
+                        if(crew[j].job == "Director" && qtdDiretor != 2){
+                            diretores += crew[j].name ;
+                        }
+                    }
+                    $(`#diretorL${k}`).html("<strong>Diretor: </strong> "+diretores);
+                    k++;
+                    
+                })
+            }
+        })
+}
+function carregaDadosELenco(){
+    URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=pt-BR&region=BR`;
+    fetch(URL)
+        .then(res => res.json())
+        .then(filmes => {
+            //console.log(filmes.results);
+            for(var i = 0; i<3; i++){
+                URL = `http://api.themoviedb.org/3/movie/${filmes.results[i].id}/credits?api_key=${API_KEY}`;
+                var j = 0;
+                var k = 0;
+                fetch(URL)
+                .then(res => res.json())
+                .then(dados => {
+                    var elenco = '';
+                    var qtdElenco = 0;
+                    var cast = dados.cast;
+                    for(var j = 0; j<cast.length; j++){
+                        if(cast[j].known_for_department == "Acting" && qtdElenco != 4){
+                            elenco +=  cast[j].name + "," ;
+                            qtdElenco++;
+                        }
+                    }
+                    $(`#elenco${k}`).html("<b>Elenco: </b>"+elenco);
+                    k++;
+                    
+                })
+            }
         })
 }
 
