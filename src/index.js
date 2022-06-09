@@ -152,7 +152,7 @@ function carregaLancamentos(){
                     .then(v => {
                         var src = `https://www.youtube.com/embed/${v.results[0].key}`;
                         var iframe = `#iframeLancamento${j}`;
-                        $(`#linkLancamento${j}`).prop('src', `https://www.themoviedb.org/movie/${filmes.results[i].id}`);
+                        $(`#linkLancamento${j}`).prop('href', `https://www.themoviedb.org/movie/${filmes.results[j].id}`);
                         $(iframe).prop('src', src);
                         $(`#nomeFilmeL${j}`).html("<strong>Nome do filmes:</strong> "+filmes.results[j].title);
                         $(`#sinopseL${j}`).html("<strong>Sinopse:</strong> "+filmes.results[j].overview);
