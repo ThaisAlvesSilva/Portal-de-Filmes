@@ -17,24 +17,6 @@ var filmesAcao = [];
 var filmesAPI = [];
 var videos = [];
 
-var avaliacoes = [
-    {
-        "nome": "Bruno Nascimento",
-        "avaliacao": "Pra quem jogou os games na era do Mega Drive/Dreamcast vai gostar muito do resultado final. O filme não é perfeito, mas deixa um sentimento de trabalho feito com carinho. Jim Carrey nasceu pra ser o Robotinic, e esse segundo filme acaba sendo uma mistura dos jogos Sonic 2, Sonic & Knucles e Sonic Adventure. As referências aos jogos são bem feitas, os efeitos estão muito bons, e os personagens se adequam bem ao cenário, dando a sensação de que eles realmente fazem parte do mundo real (belo trabalho de cores, luzes e sombras). Sonic 2 é melhor que o primeiro filme, o que aumenta o hype para um terceiro filme.",
-        "estrelas": 5
-    },
-    {
-        "nome": "Nayara Rodrigues",
-        "avaliacao": "Filme bastante mentiroso. Aquela mulher que do nada, deixa o homem louco é sempre esse homens são ricos. Inspiração de 50 tons de cinza. Cenas de sexo até q são boas, mais a história fica a desejar. Várias partes q passam sem agente entender. Filme poderia sem melhor. Atores bonitos e com química também teve pontos.",
-        "estrelas": 2
-    },
-    {
-        "nome": "Mykaelle Ferreira",
-        "avaliacao": "Eu gostei do filme, composição sonora, arte visual, qualidade excepcional. Mas achei q poderia ter havido uma composição melhor no roteiro da historia em si, atores excepcionais na interpretação só faltou um final  bacana, embora sabemos q ira ter sequencia. Sabemos q a historia são baseado em 4 livros e que o volume de informações são grandes. confesso esta ansiosa pro próximo filme.",
-        "estrelas": 3
-    }
-]
-
 function inicia(){
 
     /* var API_KEY = `5df9d42e52753432b65c92f566de9ae7`;
@@ -47,7 +29,6 @@ function inicia(){
     atualizouVideo = 0;
     $("#maisFilmes").click(carregaFilmes);
     $("#maisFilmesVideos").click(carregaFilmesVideos);
-    $("#maisAvaliacoes").click(carregaAvaliacoes);
 
     $("#aventura").click(function(){
         filtraFilmes('a', 'Animação');
@@ -103,39 +84,45 @@ function getFilmes(){
 
             classificaFilmes();
             carregaFilmes();
-            for(let i = 0; i <filmesAPI.length; i++){
-                URL = `http://api.themoviedb.org/3/movie/${filmesAPI[i].id}/videos?api_key=${API_KEY}`;
-                fetch(URL)
-                    .then(res => res.json())
-                    .then(data => {
-                        videos.push(data.results[0]);
-                    })
-            }
-            //console.log(videos);
-
-            for(let i = 0; i <filmesAPI.length; i++){
-                URL = `http://api.themoviedb.org/3/movie/${filmesAPI[i].id}/credits?api_key=${API_KEY}`;
-                fetch(URL)
-                    .then(res => res.json())
-                    .then(dados => {
-                        var diretores = '';
-                        var roteiro = '';
-                        var qtdDiretor = 0;
-                        var qtdRoteiro = 0;
-                        var crew = dados.crew;
-                        for(var j = 0; j<crew.length; j++){
-                            if(crew[j].job == "Director" && qtdDiretor != 2){
-                                diretores += crew[j].name + ",";
-                            }else if(crew[j].job == "Screenplay" && qtdRoteiro != 2){
-                                roteiro +=  crew[j].name + "," ;
-                            }
-                        }
-                        dadosDiretores.push(diretores);
-                        dadosRoteiro.push(roteiro);
-                        carregaFilmesVideos();   
-                    })
-            }
+            carregaVideosIframe();
         });
+}
+
+function carregaVideosIframe(){
+    for(let i = 0; i <filmesAPI.length; i++){
+        URL = `http://api.themoviedb.org/3/movie/${filmesAPI[i].id}/videos?api_key=${API_KEY}`;
+        fetch(URL)
+            .then(res => res.json())
+            .then(data => {
+                videos.push(data.results[0]);
+            })
+    }
+    carregaCreditosIframes();
+}
+
+function carregaCreditosIframes(){
+    for(let i = 0; i <filmesAPI.length; i++){
+        URL = `http://api.themoviedb.org/3/movie/${filmesAPI[i].id}/credits?api_key=${API_KEY}`;
+        fetch(URL)
+            .then(res => res.json())
+            .then(dados => {
+                var diretores = '';
+                var roteiro = '';
+                var qtdDiretor = 0;
+                var qtdRoteiro = 0;
+                var crew = dados.crew;
+                for(var j = 0; j<crew.length; j++){
+                    if(crew[j].job == "Director" && qtdDiretor != 2){
+                        diretores += crew[j].name + ",";
+                    }else if(crew[j].job == "Screenplay" && qtdRoteiro != 2){
+                        roteiro +=  crew[j].name + "," ;
+                    }
+                }
+                dadosDiretores.push(diretores);
+                dadosRoteiro.push(roteiro);
+                carregaFilmesVideos();   
+            })
+    }
 }
 
 function carregaLancamentos(){
@@ -150,11 +137,47 @@ function carregaLancamentos(){
                 fetch(URL)
                     .then(res => res.json())
                     .then(v => {
+                        console.log(filmes.results[j]);
                         var src = `https://www.youtube.com/embed/${v.results[0].key}`;
                         var iframe = `#iframeLancamento${j}`;
+                        var genero = '';
                         $(`#linkLancamento${j}`).prop('href', `https://www.themoviedb.org/movie/${filmes.results[j].id}`);
                         $(iframe).prop('src', src);
+                        var generos = filmes.results[j].genre_ids
+                        for(var k = 0; k<generos.length; k++){
+                            if(generos[k] == 18){
+                                genero += ' Drama' + ",";
+                            }else if(generos[k] == 16){
+                                genero += ' Animação' + ",";
+                            }else if(generos[k] == 28){
+                                genero += ' Ação' + ",";
+                            }else if(generos[k] == 12){
+                                genero += ' Aventura' + ",";
+                            }else if(generos[k] == 35){
+                                genero += ' Comedia' + ",";
+                            }else if(generos[k] == 80){
+                                genero += ' Crime' + ",";
+                            }else if(generos[k] == 18){
+                                genero += ' Drama' + ",";
+                            }else if(generos[k] == 14){
+                                genero += ' Fantasia' + ",";
+                            }else if(generos[k] == 10751){
+                                genero += ' Família' + ",";
+                            }else if(generos[k] == 17){
+                                genero += ' Terror' + ",";
+                            }else if(generos[k] == 10749){
+                                genero += ' Romance' + ",";
+                            }else if(generos[k] == 9648){
+                                genero += ' Mistério' + ",";
+                            }else if(generos[k] == 878){
+                                genero += ' Ficção científica' + ",";
+                            }else if(generos[k] == 53){
+                                genero += ' Thriller' + ",";
+                            }
+                        }
+                        $(`#generoL${j}`).html("<strong>Gêneros:</strong> "+genero);
                         $(`#nomeFilmeL${j}`).html("<strong>Nome do filmes:</strong> "+filmes.results[j].title);
+                        $(`#dataL${j}`).html("<strong>Data:</strong> "+filmes.results[j].release_date);
                         $(`#sinopseL${j}`).html("<strong>Sinopse:</strong> "+filmes.results[j].overview);
                         j++;   
                     })
@@ -371,25 +394,16 @@ function carregaFilmesVideos(){
     for(var i = 0; i <3;i++, posV++){
         var src = `https://www.youtube.com/embed/${videos[posV].key}`
         $("#iframe" + i).prop('src', src);
+        $("#linkVideo" + i).prop('href', `https://www.themoviedb.org/movie/`+ filmesAPI[posV].id);
         $("#iframeFilme" + i).html("<strong>Filme:</strong> "+filmesAPI[posV].title);
         $("#iframeDiretor" + i).html("<strong>Diretor:</strong> "+dadosDiretores[posV]);
         if(dadosRoteiro[posV] != ""){
             $("#iframeRoteiro" + i).html("<strong>Roteiro:</strong> "+dadosRoteiro[posV]);
         }else{
             $("#iframeRoteiro" + i).html("");
-        }
-        
-    }
-    
+        }    
+    } 
 }
 
-function carregaAvaliacoes(){
-    for(var i = 0; i <3; i++){
-        console.log(avaliacoes[i].nome);
-        $("#avaNome"+i).html("<b>" + avaliacoes[i].nome + "</b>");
-        $("#avaComentario"+i).html("<b>Avaliação: </b>"+avaliacoes[i].avaliacao);
-        //document.getElementById("avaNome"+i).textContent = avaliacoes[i].nome;
-    }
-}
 
 
