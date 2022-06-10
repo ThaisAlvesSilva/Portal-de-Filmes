@@ -48,9 +48,14 @@ section{
     margin-bottom: 50px;
 }
 
-.main, .imagemDestaque{
+.main{
     width: 100%;
     height: 100%;
+}
+
+.imagemDestaque{
+    width: 100%;
+    height: 400px;
 }
 
 .lupa{
@@ -97,6 +102,9 @@ section{
 .maisFilmes{
     margin-left:980px;
     margin-top: 10px;
+}
+#link1, #link2, #link3, #link4, #link0, #linkLancamento0, #linkLancamento1,#linkLancamento2{
+    padding: 3px;
 }
 
 #botaoepesquisa{

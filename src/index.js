@@ -48,38 +48,44 @@ function inicia(){
 
 function getFilmes(){
     
-    URL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}`;
+    URL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=pt-BR&region=BR`;
     imagePath = `https://image.tmdb.org/t/p/w500/`; 
 
     fetch(URL)
         .then(res => res.json())
         .then(data => {
             data.results.map(filme =>{
-                filmesAPI.push(filme);
+                if(filme.poster_path != undefined && filme.overview != ""){
+                    filmesAPI.push(filme);
+                }
             })
  
         });
          
-    URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`;
+    URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=pt-BR&region=BR`;
     imagePath = `https://image.tmdb.org/t/p/w500/`;
 
     fetch(URL)
         .then(res => res.json())
         .then(data => {
             data.results.map(filme =>{
-                filmesAPI.push(filme);
+                if(filme.poster_path != undefined && filme.overview != ""){
+                    filmesAPI.push(filme);
+                }
             })
             console.log(filmesAPI);
         });
 
-    URL = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`;
+    URL = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=pt-BR&region=BR`;
     imagePath = `https://image.tmdb.org/t/p/w500/`;
 
     fetch(URL)
         .then(res => res.json())
         .then(data => {
             data.results.map(filme =>{
-                filmesAPI.push(filme);
+                if(filme.poster_path != undefined && filme.overview != ""){
+                    filmesAPI.push(filme);
+                }
             })
 
             classificaFilmes();
@@ -361,18 +367,28 @@ function alteraFilmes(categoria, pos){
     for(var i=0;i<4;i++, pos++){
         let link = "#link" + i;
         let img = '#img' + i;
+        let sinopse = "#sinopseFilme"+i
+        let titulo = "#tituloFilme"+i
         if(categoria == 'd'){
             $(link).prop('href', `https://www.themoviedb.org/movie/${filmesDrama[pos].id}`);  
-            $(img).prop('src', `${imagePath}${filmesDrama[pos].poster_path}`);  
+            $(img).prop('src', `${imagePath}${filmesDrama[pos].poster_path}`); 
+            $(sinopse).html("<strong>Sinopse:</strong> "+filmesDrama[pos].overview);
+            $(titulo).html("<strong>"+filmesDrama[pos].title +"</strong> "); 
         }else if(categoria == 'a'){
             $(link).prop('href', `https://www.themoviedb.org/movie/${filmesAnimacao[pos].id}`);
             $(img).prop('src', `${imagePath}${filmesAnimacao[pos].poster_path}`); 
+            $(sinopse).html("<strong>Sinopse:</strong> "+filmesAnimacao[pos].overview);
+            $(titulo).html("<strong>"+filmesAnimacao[pos].title +"</strong> ");
         }else if(categoria == 'ac'){
             $(link).prop('href', `https://www.themoviedb.org/movie/${filmesAcao[pos].id}`);
             $(img).prop('src', `${imagePath}${filmesAcao[pos].poster_path}`); 
+            $(sinopse).html("<strong>Sinopse:</strong> "+filmesAcao[pos].overview);
+            $(titulo).html("<strong>"+filmesAcao[pos].title +"</strong> ");
         }else{  
             $(link).prop('href', `https://www.themoviedb.org/movie/${filmesAPI[pos].id}`);
             $(img).prop('src', `${imagePath}${filmesAPI[pos].poster_path}`); 
+            $(sinopse).html("<strong>Sinopse:</strong> "+filmesAPI[pos].overview);
+            $(titulo).html("<strong>"+filmesAPI[pos].title +"</strong> ");
         }
     }         
 }
