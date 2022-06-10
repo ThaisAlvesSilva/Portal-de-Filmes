@@ -22,9 +22,7 @@
         
         <div class="col-12 col-sm-6 col-md-4 col-lg-8 navItens">
           <div class="navbar-nav justify-content-center">
-            <a class="nav-link active" href="#lançamentos">Lançamentos |</a>
-            <a class="nav-link" href="#destaque">em destaque |</a>
-            <a class="nav-link" href="#making">entrevistas & makingof |</a>
+            <a onclick="atualiza()" class="nav-link" href="#destaque">Em destaque</a>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 caixaDePesquisa">
@@ -47,7 +45,7 @@
     
     <main class="container main" id="main">
       <div class="row" style ="margin-top: 50px;" id="corpoDoSite">
-        <section class="row lancamento" id ="lançamentos">
+        <!-- <section class="row lancamento" id ="lançamentos">
               <h1 class ="textoLancamento">Lançamentos</h1>
 
               <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -125,8 +123,8 @@
                   <span class="sr-only">Next</span>
                 </a>
               </div>   
-        </section>
-        <section class="row destaque" id ="destaque">
+        </section> -->
+        <section class="row destaque" id ="destaque" style="margin-top:100px;">
           <div class = "row">
             <div class="col-12 col-sm-6 col-md-3 col-lg-10">
               <h1 class="textoDestaque">Em destaque</h1>
@@ -146,40 +144,40 @@
               </div>
             </div>
           </div>
-          <div class = "row">
-                <div class="col-12 col-sm-6 col-md-3 col-lg-3" id="destaqueFilmes">
-                 <!--  <a href="https://developers.themoviedb.org/3/getting-started/introduction" id="link0">
+          <div class = "row filmes" id="filmes">
+                <!-- <div class="col-12 col-sm-6 col-md-3 col-lg-3" id="destaqueFilmes">
+                 <a href="https://developers.themoviedb.org/3/getting-started/introduction" id="link0">
                     <img src="../imagens/Comedia/autoDaCompadecida.jpg" id="img0" class="imagemDestaque">      
                   </a>  --> 
-                  <div class="card" style="width: 18rem;">
+                  <!-- <div class="card" style="width: 18rem;">
                     <img id="img0" class="imagemDestaque" src="...">
                     <div class="card-body">
                       <h5 id="tituloFilme0" class="card-title">Card title</h5>
                       <p id = "sinopseFilme0"class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       <a id="link0" href="#" class="btn btn-success">Ver mais</a>
                     </div>
-                  </div>
+                  </div> 
                 </div>
       
                 <div class="col-12 col-sm-6 col-md-3 col-lg-3" id="destaqueFilmes">
-                  <!-- <a href="" id="link1">
+                  <a href="" id="link1">
                     <img src="../imagens/Animacao/beeMovie.jpg" id="img1" class="imagemDestaque"> 
                   </a> -->  
-                  <div class="card" style="width: 18rem;">
+                  <!-- <div class="card" style="width: 18rem;">
                     <img id="img1" class="imagemDestaque" src="..." >
                     <div class="card-body">
                       <h5 id="tituloFilme1" class="card-title">Card title</h5>
                       <p id = "sinopseFilme1" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       <a id="link1" href="#" class="btn btn-success">Ver mais</a>
                     </div>
-                  </div>      
-                </div>
+                  </div>       
+                </div> 
                 <div class="col-12 col-sm-6 col-md-3 col-lg-3" id="destaqueFilmes">
-                  <!-- <a href="" id="link2">
+                 <a href="" id="link2">
                     <img src="../imagens/Ficcao/bladeRunner.jpg" id="img2" class="imagemDestaque">
-                  </a> -->
-                  <div class="card" style="width: 18rem;">
-                    <img id="img2" class="imagemDestaque" src="..." >
+                  </a> 
+                   <div class="card" style="width: 18rem;">
+                    <img id="img2" class="imagemDestaque" src="...">
                     <div class="card-body">
                       <h5 id="tituloFilme2"class="card-title">Card title</h5>
                       <p id = "sinopseFilme2" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -188,22 +186,20 @@
                   </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md-3 col-lg-3" id="destaqueFilmes">
-                 <!--  <a href="" id="link3">
+                  <a href="" id="link3">
                     <img src="../imagens/Romance/eoVentoLevou.jpg" id="img3" class="imagemDestaque"> 
-                  </a> -->
-                  <div class="card" style="width: 18rem;">
+                  </a> 
+                 <div class="card" style="width: 18rem;">
                     <img id="img3" class="imagemDestaque" src="..." alt="Card image cap">
                     <div class="card-body">
                       <h5 id="tituloFilme3"class="card-title">Card title</h5>
                       <p id = "sinopseFilme3" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       <a id="link3" href="#" class="btn btn-success">Ver mais</a>
                     </div>
-                  </div>
-                </div>
-          </div>
-          <div class = "row" >
+                  </div> -->
+          <!-- <div class = "row" >
             <button type="button" id ="maisFilmes" class="btn btn-secondary maisFilmes"> + Carregar mais filmes</button>
-          </div>
+          </div> -->
   
         </section>
         <!-- <section class="row making" id ="making">

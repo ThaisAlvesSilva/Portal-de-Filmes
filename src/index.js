@@ -88,9 +88,11 @@ function getFilmes(){
                 }
             })
 
-            classificaFilmes();
-            carregaFilmes();
-            carregaVideosIframe();
+            carregaCreditosIframes
+            adicionaFilmesNaTela();
+            //classificaFilmes();
+            //carregaFilmes();
+            //carregaVideosIframe();
         });
 }
 
@@ -126,9 +128,10 @@ function carregaCreditosIframes(){
                 }
                 dadosDiretores.push(diretores);
                 dadosRoteiro.push(roteiro);
-                carregaFilmesVideos();   
+                //carregaFilmesVideos();   
             })
     }
+    adicionaFilmesNaTela();
 }
 
 function carregaLancamentos(){
@@ -297,7 +300,65 @@ function pesquisa(){
                 })
                 $('#corpoDoSite').html(filmes);
             });
+    }  
+}
+
+function adicionaFilmesNaTela(){
+    console.log(filmesAPI);
+    var filmes = '';
+    for(var i = 0; i <filmesAPI.length; i++){
+        if(filmesAPI[i].overview != ""){
+            if(filmesAPI[i].poster_path != undefined){
+                var genero = '';
+                var generos = filmesAPI[i].genre_ids;
+                for(var k = 0; k<generos.length; k++){
+                    if(generos[k] == 18){
+                        genero += ' Drama' + ",";
+                    }else if(generos[k] == 16){
+                        genero += ' Animação' + ",";
+                    }else if(generos[k] == 28){
+                        genero += ' Ação' + ",";
+                    }else if(generos[k] == 12){
+                        genero += ' Aventura' + ",";
+                    }else if(generos[k] == 35){
+                        genero += ' Comedia' + ",";
+                    }else if(generos[k] == 80){
+                        genero += ' Crime' + ",";
+                    }else if(generos[k] == 18){
+                        genero += ' Drama' + ",";
+                    }else if(generos[k] == 14){
+                        genero += ' Fantasia' + ",";
+                    }else if(generos[k] == 10751){
+                        genero += ' Família' + ",";
+                    }else if(generos[k] == 17){
+                        genero += ' Terror' + ",";
+                    }else if(generos[k] == 10749){
+                        genero += ' Romance' + ",";
+                    }else if(generos[k] == 9648){
+                        genero += ' Mistério' + ",";
+                    }else if(generos[k] == 878){
+                        genero += ' Ficção científica' + ",";
+                    }else if(generos[k] == 53){
+                        genero += ' Thriller' + ",";
+                    }
+                }
+                filmes += 
+                `<div class="col-12 col-sm-6 col-md-3 col-lg-4" style="margin-top:50px;">
+                    <div class="card" style="width: 20rem;">
+                        <img id="img0" class="imagemDestaque" src="${imagePath}${filmesAPI[i].poster_path}">
+                        <div class="card-body">
+                        <h5 id="tituloFilme0" class="card-title">${filmesAPI[i].title}</h5>
+                        <p id = "sinopseFilme0"class="card-text"><b>Sinopse: </b>${filmesAPI[i].overview}</p>
+                        <p id = "sinopseFilme0"class="card-text"><b>Gêneros: </b>${genero}</p>
+                        <p id = "sinopseFilme0"class="card-text"><b>Data: </b>${filmesAPI[i].release_date}</p>
+                        <a id="link0" href="https://www.themoviedb.org/movie/${filmesAPI[i].id}" class="btn btn-success">Ver mais</a>
+                        </div>
+                    </div>
+                </div>`
+            }
+        } 
     }
+    $('#filmes').html(filmes);
     
 }
 function filtraFilmes(categoria, nomeCategoria){
