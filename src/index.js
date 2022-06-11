@@ -295,12 +295,14 @@ function pesquisa(){
                 data.results.map(filme => {
                     if(filme.overview != ""){
                         if(filme.poster_path != undefined){
-                            filmes += 
-                            `<div style="margin-top:80px; border-color:blue;"class="col-12 col-sm-12 col-md-4 col-lg-4">
+                            filmes +=
+                            `<div style="margin-top:80px; border-color:blue;"class="col-12 col-sm-12 col-md-6 col-lg-4">
                                 <a style="color:black;" href="https://www.themoviedb.org/movie/${filme.id}">
-                                    <img style="width:200px;"src="${imagePath}${filme.poster_path}"</img>
-                                    <p><b> Filme:</b>  ${filme.title}</p>
-                                    <p><b>Descrição:</b> ${filme.overview}</p>
+                                    <div id="cardFilme" class="card" style="width: 20rem;padding:20px;">
+                                        <img style="width:80%px;"src="${imagePath}${filme.poster_path}"</img>
+                                        <p><b> Filme:</b>  ${filme.title}</p>
+                                        <p><b>Descrição:</b> ${filme.overview}</p>
+                                    </div>
                                 </a>   
                             </div> `
                         }
@@ -358,7 +360,7 @@ function adicionaFilmesNaTela(){
 
                 filmes += 
                 `<div  class="col-12 col-sm-12 col-md-6 col-lg-4" style="margin-top:50px;">
-                    <div id="cardFilme" class="card" style="width: 20rem;">
+                    <div id="cardFilme" class="card" style="width: 20rem;padding:5px;">
                         <img id="img0" class="imagemDestaque" src="${imagePath}${filmesAPI[i].poster_path}">
                         <div class="card-body">
                         <h5 id="tituloFilme0" class="card-title">${filmesAPI[i].title}</h5>

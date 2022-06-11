@@ -36,10 +36,13 @@ header{
 #cardFilme{
     background-color: rgb(221, 208, 218);
     border-color: rgb(95, 33, 81);
-    border-radius: 20px;
+    border-radius: 10px;
 }
 #corpoDoSite{
-    margin-left: 50px;
+   padding:20px;
+}
+#filmes, .textoDestaque{
+     margin-left: 20px;
 }
 p{
     font-size:20px;
@@ -49,6 +52,7 @@ p{
 card{
     background-color: rgb(221, 208, 218);
 }
+
 
 
 #divIframe{
