@@ -5,7 +5,7 @@ var movieDB = `https://www.themoviedb.org/movie/`
 var categoria = 't';
 var atualizou;
 var atualizouVideo;
-var imagePath;
+var imagePath = `https://image.tmdb.org/t/p/w500/`; 
 var pos = 0;
 var posVideos = 0;
 var dadosDiretores = [];
@@ -28,9 +28,13 @@ function inicia(){
     /* var API_KEY = `5df9d42e52753432b65c92f566de9ae7`;
     URL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}`;
     imagePath = `https://image.tmdb.org/t/p/w500/`; */
+    var pesquisa = $('#botaoepesquisa').val();
+    if(pesquisa == ""){
+        getFilmes();
+    }else{
+        adicionaFilmesPesquisa(pesquisa);
+    }
 
-    getFilmes();
-    carregaLancamentos();
     atualizou = 0;
     atualizouVideo = 0;
     $("#maisFilmes").click(carregaFilmes);
@@ -287,30 +291,35 @@ function pesquisa(){
     if(pesquisa == ""){
         atualiza();
     }else{
-        URL = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=pt-BR&region=BR&query=${pesquisa}`;
-        var filmes = '';
-        fetch(URL)
-            .then(res => res.json())
-            .then(data => {
-                data.results.map(filme => {
-                    if(filme.overview != ""){
-                        if(filme.poster_path != undefined){
-                            filmes +=
-                            `<div style="margin-top:80px; border-color:blue;"class="col-12 col-sm-12 col-md-4 col-lg-4">
-                                <a style="color:black;" href="https://www.themoviedb.org/movie/${filme.id}">
-                                    <div id="cardFilme" class="card" style="width: 20rem;padding:20px;">
-                                        <img style="width:80%px;"src="${imagePath}${filme.poster_path}"</img>
-                                        <p><b> Filme:</b>  ${filme.title}</p>
-                                        <p><b>Descrição:</b> ${filme.overview}</p>
-                                    </div>
-                                </a>   
-                            </div> `
-                        }
-                    } 
-                })
-                $('#corpoDoSite').html(filmes);
-            });
+        adicionaFilmesPesquisa(pesquisa);
     }  
+}
+
+function adicionaFilmesPesquisa(pesquisa){
+    URL = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=pt-BR&region=BR&query=${pesquisa}`;
+    var filmes = '';
+    fetch(URL)
+        .then(res => res.json())
+        .then(data => {
+            data.results.map(filme => {
+                if(filme.overview != ""){
+                    if(filme.poster_path != undefined){
+                        filmes +=
+                        `<div style="margin-top:80px; border-color:blue;"class="col-12 col-sm-12 col-md-6 col-lg-4">
+                                <div id="cardFilme" class="card" style="width: 20rem;padding:20px;">
+                                    <img style="width:80%px;"src="${imagePath}${filme.poster_path}"</img>
+                                    <p><b> Filme:</b>  ${filme.title}</p>
+                                    <p><b>Descrição:</b> ${filme.overview}</p>
+                                    <a href="https://www.themoviedb.org/movie/${filme.id}" style="color:black;">
+                                    <button  class="btn btn-success";" class="btn btn-success">Ver mais</button>
+                                    </a>
+                                </div>  
+                        </div> `
+                    }
+                } 
+            })
+            $('#corpoDoSite').html(filmes);
+        });
 }
 
 function adicionaFilmesNaTela(){
