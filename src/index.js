@@ -357,8 +357,8 @@ function adicionaFilmesNaTela(){
                 dataF = filmesAPI[i].release_date;
 
                 filmes += 
-                `<div class="col-12 col-sm-6 col-md-3 col-lg-4" style="margin-top:50px;">
-                    <div class="card" style="width: 20rem;">
+                `<div  class="col-12 col-sm-12 col-md-6 col-lg-4" style="margin-top:50px;">
+                    <div id="cardFilme" class="card" style="width: 20rem;">
                         <img id="img0" class="imagemDestaque" src="${imagePath}${filmesAPI[i].poster_path}">
                         <div class="card-body">
                         <h5 id="tituloFilme0" class="card-title">${filmesAPI[i].title}</h5>

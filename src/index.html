@@ -7,7 +7,7 @@
       <title>Portal de Filmes</title>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="index.css">
       <script src="jquery-3.6.0.min.js"></script>
       <script src="jquery-3.6.0.min.js"></script>
       <script src="index.js"></script>
@@ -16,18 +16,14 @@
 
     <header class="header">
       <nav class="navbar navbar-expand-lg">
-        <div onclick="atualiza()">
+        <div  class="col-4 col-sm-2 col-md-2 col-lg-9" onclick="atualiza()">
           <img src="../imagens/logoFilme.png" class="logo">
         </div>
-        
-        <div class="col-12 col-sm-6 col-md-4 col-lg-8 navItens">
-          <div class="navbar-nav justify-content-center">
-            <a onclick="atualiza()" class="nav-link" href="#destaque">Em destaque</a>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 caixaDePesquisa">
+        <div class="col-8 col-sm-6 col-md-4 col-lg-3 caixaDePesquisa">
           <div class="div1">
             <div class="card-body row no-gutters align-items-center">
+              <div class="row">  
+              </div>
               <div class="lupa" >
                 <svg onclick="pesquisa()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                   <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
@@ -37,9 +33,9 @@
                   <input id ="botaoepesquisa" onchange="pesquisa()"style="background-color: rgb(221, 208, 218);" type="search" placeholder="Pesquisar filme">
                 </div>  
             </div>
-          </div>
-          
+          </div> 
         </div>
+
       </nav>
     </header>
     
