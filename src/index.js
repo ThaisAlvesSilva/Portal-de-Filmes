@@ -296,7 +296,7 @@ function pesquisa(){
                     if(filme.overview != ""){
                         if(filme.poster_path != undefined){
                             filmes +=
-                            `<div style="margin-top:80px; border-color:blue;"class="col-12 col-sm-12 col-md-6 col-lg-4">
+                            `<div style="margin-top:80px; border-color:blue;"class="col-12 col-sm-12 col-md-4 col-lg-4">
                                 <a style="color:black;" href="https://www.themoviedb.org/movie/${filme.id}">
                                     <div id="cardFilme" class="card" style="width: 20rem;padding:20px;">
                                         <img style="width:80%px;"src="${imagePath}${filme.poster_path}"</img>

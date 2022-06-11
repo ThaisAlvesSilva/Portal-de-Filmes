@@ -89,6 +89,10 @@ function carregaDadosELenco(id){
     })
 }
 
+function atualiza(){
+    location.href = "index.html";
+}
+
 function getVideo(id, poster){
     var div = '';
     URL = `http://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&language=pt-BR&region=BR`;
