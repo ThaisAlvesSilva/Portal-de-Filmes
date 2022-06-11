@@ -1,0 +1,57 @@
+.logo, .logoFooter{
+    width: 100px;
+    padding: 5px;
+}
+
+body{
+    width:100%;
+    background: rgb(221, 208, 218);
+}
+
+header, .navbar, footer{
+    background: #a596a5;
+}
+
+header{
+    position:fixed;
+    top:0;
+    padding:0;
+    width:100%;
+    z-index:999;
+}
+#nome{
+    color: rgb(114, 4, 4)
+}
+
+p{
+    font-size:20px;
+    color:black;
+}
+
+
+#divIframe{
+    margin-left: 200px;
+    margin-top: 140px; 
+    margin-bottom:30px;
+}
+
+.navItens{
+    align-items:center;
+}
+#imgFilme{
+    margin-left: 100px;
+}
+
+
+@media screen and (max-width:768px){
+    #divIframe{
+        margin-top: 250px;
+        margin-left: 0px;
+        width: 100%;
+    }
+    #imgFilme{
+        width: 100%;
+        height:100%;
+        margin-left: 0px;
+    }
+}

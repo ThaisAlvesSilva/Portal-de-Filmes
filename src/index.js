@@ -17,6 +17,12 @@ var filmesAcao = [];
 var filmesAPI = [];
 var videos = [];
 
+var nomeF;
+var idF; 
+var sinopseF; 
+var dataF;
+var generosF;
+
 function inicia(){
 
     /* var API_KEY = `5df9d42e52753432b65c92f566de9ae7`;
@@ -133,6 +139,8 @@ function carregaCreditosIframes(){
     }
     adicionaFilmesNaTela();
 }
+
+
 
 function carregaLancamentos(){
     URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=pt-BR&region=BR`;
@@ -342,6 +350,12 @@ function adicionaFilmesNaTela(){
                         genero += ' Thriller' + ",";
                     }
                 }
+                nomeF = filmesAPI[i].title;
+                idF = filmesAPI[i].id;
+                sinopseF = filmesAPI[i].overview;
+                generosF = genero;
+                dataF = filmesAPI[i].release_date;
+
                 filmes += 
                 `<div class="col-12 col-sm-6 col-md-3 col-lg-4" style="margin-top:50px;">
                     <div class="card" style="width: 20rem;">
@@ -351,7 +365,7 @@ function adicionaFilmesNaTela(){
                         <p id = "sinopseFilme0"class="card-text"><b>Sinopse: </b>${filmesAPI[i].overview}</p>
                         <p id = "sinopseFilme0"class="card-text"><b>Gêneros: </b>${genero}</p>
                         <p id = "sinopseFilme0"class="card-text"><b>Data: </b>${filmesAPI[i].release_date}</p>
-                        <a id="link0" href="https://www.themoviedb.org/movie/${filmesAPI[i].id}" class="btn btn-success">Ver mais</a>
+                        <button onClick="abreDetalhes(${filmesAPI[i].id});" class="btn btn-success";" class="btn btn-success">Detalhes</button>
                         </div>
                     </div>
                 </div>`
@@ -361,6 +375,15 @@ function adicionaFilmesNaTela(){
     $('#filmes').html(filmes);
     
 }
+
+//<a id="link0" href="https://www.themoviedb.org/movie/${filmesAPI[i].id}" class="btn btn-success">Ver mais</a>
+
+function abreDetalhes(id){
+    console.log(id);
+    localStorage.setItem("id", id);
+    window.location.href = 'detalhes.html';
+}
+
 function filtraFilmes(categoria, nomeCategoria){
     atualizou = 0;
     $('#dropdownMenuButton').text('Categoria: ' + nomeCategoria);
