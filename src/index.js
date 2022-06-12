@@ -198,20 +198,26 @@ function adicionaFilmesPesquisa(pesquisa){
                 if(filme.overview != ""){
                     if(filme.poster_path != undefined){
                         filmes +=
-                        `<div style="margin-top:80px; border-color:blue;"class="col-12 col-sm-12 col-md-6 col-lg-4">
-                                <div id="cardFilme" class="card" style="width: 20rem;padding:20px;">
+                        `<div style="margin-top:30px; border-color:blue;"class="col-12 col-sm-12 col-md-6 col-lg-4">
+                                <div id="cardFilmePesquisa" class="card">
                                     <img style="width:80%px;"src="${imagePath}${filme.poster_path}"</img>
                                     <p><b> Filme:</b>  ${filme.title}</p>
                                     <p><b>Descrição:</b> ${filme.overview}</p>
                                     <a href="https://www.themoviedb.org/movie/${filme.id}" style="color:black;">
-                                    <button  class="btn btn-success";" class="btn btn-success">Ver mais</button>
+                                        <button  class="btn btn-success";" class="btn btn-success">Ver mais</button>
                                     </a>
                                 </div>  
                         </div> `
                     }
                 } 
             })
-            $('#corpoDoSite').html(filmes);
+            
+            $(".textoDestaque").html("Filmes encontrados:");
+            $(".textoDestaque").css("font-size", "35px");
+            $(".textoDestaque").css("text-align", "left");
+            $(".textoDestaque").css("margin-bottom", "1px");
+            
+            $('#main').html(filmes);
         });
 }
 
@@ -261,8 +267,8 @@ function adicionaFilmesNaTela(){
                 dataF = filmesAPI[i].release_date;
 
                 filmes += 
-                `<div  class="col-12 col-sm-12 col-md-6 col-lg-4" style="margin-top:50px;">
-                    <div id="cardFilme" class="card" style="width: 20rem;padding:5px;">
+                `<div  id="divFilme" class="col-12 col-sm-12 col-md-12 col-lg-4" style="margin-top:50px;">
+                    <div id="cardFilme" class="card">
                         <img id="img0" class="imagemDestaque" src="${imagePath}${filmesAPI[i].poster_path}">
                         <div class="card-body">
                         <p class="card-title"><b>Titulo: </b>
@@ -278,8 +284,7 @@ function adicionaFilmesNaTela(){
             }
         } 
     }
-    $('#filmes').html(filmes);
-    
+    $('#main').html(filmes);  
 }
 
 function abreDetalhes(id){
