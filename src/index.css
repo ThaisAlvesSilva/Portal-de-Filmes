@@ -45,25 +45,18 @@ header{
     border-color: rgb(95, 33, 81);
     border-radius: 10px;
     width: 30rem;
-    margin-left:50px;
 }
 
 #cardFilmePesquisa{
     padding:30px;
 }
 
-#filmes, .textoDestaque{
-     margin-left: 20px;
-}
 .textoDestaque{
     text-align:center;
     margin-top:130px;
     font-size: 50px;
 }
 
-.teste{
-    align-items: center;
-}
 p{
     font-size:20px;
     color:black;
@@ -78,20 +71,27 @@ card{
     margin-bottom:30px;
 }
 
-.navItens{
-    align-items:center;
-}
-#imgFilme{
-    margin-left: 100px;
-}
 
 #tituloFilme{
     color:rgb(114, 4, 4);
     font-size: 25px;
     align-items:center;
 }
+
 h5{
     font-weight: bold;
+}
+
+.footer {
+    background: #c5b4c5;
+    color: black;
+    font-size: 0.8em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center; 
+    margin-top:50px;
+    padding: 2px;
 }
 
 @media screen and (max-width:768px){
