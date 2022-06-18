@@ -254,7 +254,7 @@ function adicionaFilmesNaTela(){
                         <p id = "sinopseFilme0"class="card-text"><b>Descrição: </b>${filmesAPI[i].overview}</p>
                         <p id = "sinopseFilme0"class="card-text"><b>Gêneros: </b>${genero}</p>
                         <p id = "sinopseFilme0"class="card-text"><b>Data: </b>${filmesAPI[i].release_date}</p>
-                        <button onClick="abreDetalhes(${filmesAPI[i].id});" class="btn btn-success";" class="btn btn-success">Detalhes</button>
+                        <button onClick='abreDetalhes(${JSON.stringify(filmesAPI[i])});' class="btn btn-success";" class="btn btn-success">Detalhes</button>
                         </div>
                     </div>
                 </div>`
@@ -264,8 +264,8 @@ function adicionaFilmesNaTela(){
     $('#main').html(filmes);  
 }
 
-function abreDetalhes(id){
-    localStorage.setItem("id", id);
+function abreDetalhes(filme){
+    localStorage.setItem("filme", JSON.stringify(filme));
     window.location.href = 'detalhes.html';
 }
 

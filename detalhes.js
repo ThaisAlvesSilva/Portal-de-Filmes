@@ -3,22 +3,24 @@ var API_KEY = `5df9d42e52753432b65c92f566de9ae7`;
 var imagePath = `https://image.tmdb.org/t/p/w500/`; 
 
 function inicia() {
-    getFilme(localStorage.getItem("id"));
+    var filme = JSON.parse(localStorage.getItem("filme"));
+    console.log(filme);
+    getFilme(filme);
 }
 
-function getFilme(id) {
-    URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=pt-BR&region=BR`;
-    fetch(URL)
-    .then(res => res.json())
-    .then(dados => {
-        var genero = getGenero(dados.genres);
+function getFilme(dados) {
+    //URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=pt-BR&region=BR`;
+    //fetch(URL)
+   // .then(res => res.json())
+    //.then(dados => {
+        //var genero = getGenero(dados.genres);
         $("#sinopse").html("<strong>Sinopse:</strong> "+dados.overview);
         $("#data").html("<strong>Data de lançamento:</strong> "+dados.release_date);
-        $("#generos").html("<strong>Gêneros:</strong> "+genero);
+        //$("#generos").html("<strong>Gêneros:</strong> "+genero);
         $("#nome").html(dados.title);
         getInfos(dados.id);
         getVideo(dados.id, dados.poster_path);
-    });
+   // });
 }
 
 function getGenero(generos){
