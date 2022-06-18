@@ -1,13 +1,13 @@
 $(document).ready(inicia);
 var API_KEY = `5df9d42e52753432b65c92f566de9ae7`;
-var imagePath = `http://image.tmdb.org/t/p/w500/`; 
+var imagePath = `https://image.tmdb.org/t/p/w500/`; 
 
 function inicia() {
     getFilme(localStorage.getItem("id"));
 }
 
 function getFilme(id) {
-    URL = `http://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=pt-BR&region=BR`;
+    URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=pt-BR&region=BR`;
     fetch(URL)
     .then(res => res.json())
     .then(dados => {
@@ -30,7 +30,7 @@ function getGenero(generos){
 }
 
 function getInfos(id){
-    URL = `http://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}`;
+    URL = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}`;
     var j = 0;
     var k = 0;
     fetch(URL)
@@ -64,7 +64,7 @@ function getInfos(id){
 
 function carregaDadosELenco(id){
     
-    URL = `http://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}`;
+    URL = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}`;
     var j = 0;
     var k = 0;
     fetch(URL)
@@ -90,7 +90,7 @@ function atualiza(){
 
 function getVideo(id, poster){
     var div = '';
-    URL = `http://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&language=pt-BR&region=BR`;
+    URL = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&language=pt-BR&region=BR`;
     fetch(URL)
         .then(res => res.json())
         .then(data => {
