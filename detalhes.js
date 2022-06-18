@@ -9,10 +9,6 @@ function inicia() {
 }
 
 function getFilme(dados) {
-    //URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=pt-BR&region=BR`;
-    //fetch(URL)
-   // .then(res => res.json())
-    //.then(dados => {
         //var genero = getGenero(dados.genres);
         $("#sinopse").html("<strong>Sinopse:</strong> "+dados.overview);
         $("#data").html("<strong>Data de lançamento:</strong> "+dados.release_date);
@@ -20,9 +16,6 @@ function getFilme(dados) {
         $("#nome").html(dados.title);
         getInfos(dados.id);
         getVideo(dados.id, dados.poster_path);
-
-        
-   // });
 }
 
 function getGenero(generos){
