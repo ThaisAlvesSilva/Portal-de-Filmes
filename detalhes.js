@@ -1,6 +1,6 @@
 $(document).ready(inicia);
 var API_KEY = `5df9d42e52753432b65c92f566de9ae7`;
-var imagePath = `https://image.tmdb.org/t/p/w500/`; 
+var imagePath = `http://image.tmdb.org/t/p/w500/`; 
 
 function inicia() {
     getFilme(localStorage.getItem("id"));
