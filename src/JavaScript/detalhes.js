@@ -3,8 +3,6 @@ var API_KEY = `5df9d42e52753432b65c92f566de9ae7`;
 var imagePath = `https://image.tmdb.org/t/p/w500/`; 
 
 function inicia() {
-    console.log("id");
-    console.log(localStorage.getItem("id"));
     getFilme(localStorage.getItem("id"));
 }
 
@@ -13,7 +11,6 @@ function getFilme(id) {
     fetch(URL)
     .then(res => res.json())
     .then(dados => {
-        console.log(dados);
         var genero = getGenero(dados.genres);
         $("#sinopse").html("<strong>Sinopse:</strong> "+dados.overview);
         $("#data").html("<strong>Data de lançamento:</strong> "+dados.release_date);
@@ -73,8 +70,6 @@ function carregaDadosELenco(id){
     fetch(URL)
     .then(res => res.json())
     .then(dados => {
-        console.log("DADOS:");
-        console.log(dados);
         var elenco = '';
         var qtdElenco = 0;
         var cast = dados.cast;
@@ -111,11 +106,6 @@ function getVideo(id, poster){
                 var src = imagePath + poster;
                 div += 
                 `<img id="imgFilme" src=${src} width="40%" height="400px" id="img">`;
-                //$("#img").prop('src', `${imagePath}${poster}`); 
-                //$("#iframe").css("visibility", "hidden");
-                //$("#iframe").prop('src',`${imagePath}${poster}`);
-                //$("#iframe").css("width", "50%");
-                //$("#iframe").css("height", "300px");
             }
             $('#divIframe').html(div); 
         })

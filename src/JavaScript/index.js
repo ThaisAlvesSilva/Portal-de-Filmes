@@ -1,5 +1,4 @@
 $(document).ready(inicia);
-/* http://api.themoviedb.org/3/movie/157336/videos?api_key=5df9d42e52753432b65c92f566de9ae7 */
 var API_KEY = `5df9d42e52753432b65c92f566de9ae7`;
 var movieDB = `https://www.themoviedb.org/movie/`
 var categoria = 't';
@@ -36,20 +35,6 @@ function inicia(){
 
 function getFilmes(){
     
-    /* URL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=pt-BR&region=BR`;
-    imagePath = `https://image.tmdb.org/t/p/w500/`; 
-
-    fetch(URL)
-        .then(res => res.json())
-        .then(data => {
-            data.results.map(filme =>{
-                if(filme.poster_path != undefined && filme.overview != ""){
-                    filmesAPI.push(filme);
-                }
-            })
- 
-        }); */
-         
     URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=pt-BR&region=BR`;
     imagePath = `https://image.tmdb.org/t/p/w500/`;
 
@@ -78,10 +63,6 @@ function getFilmes(){
                 }
             })
 
-            
-            //classificaFilmes();
-            //carregaFilmes();
-            //carregaVideosIframe();
         });
 }
 
@@ -107,7 +88,6 @@ function carregaCreditosIframes(){
                 }
                 dadosDiretores.push(diretores);
                 dadosRoteiro.push(roteiro);
-                //carregaFilmesVideos();   
             })
     }
     adicionaFilmesNaTela();
@@ -119,7 +99,6 @@ function carregaDadosDiretor(){
     fetch(URL)
         .then(res => res.json())
         .then(filmes => {
-            //console.log(filmes.results);
             for(var i = 0; i<3; i++){
                 URL = `http://api.themoviedb.org/3/movie/${filmes.results[i].id}/credits?api_key=${API_KEY}`;
                 var j = 0;
@@ -149,7 +128,6 @@ function carregaDadosELenco(){
     fetch(URL)
         .then(res => res.json())
         .then(filmes => {
-            //console.log(filmes.results);
             for(var i = 0; i<3; i++){
                 URL = `http://api.themoviedb.org/3/movie/${filmes.results[i].id}/credits?api_key=${API_KEY}`;
                 var j = 0;
@@ -222,7 +200,6 @@ function adicionaFilmesPesquisa(pesquisa){
 }
 
 function adicionaFilmesNaTela(){
-    console.log(filmesAPI);
     var filmes = '';
     for(var i = 0; i <filmesAPI.length; i++){
         if(filmesAPI[i].overview != ""){
@@ -288,7 +265,6 @@ function adicionaFilmesNaTela(){
 }
 
 function abreDetalhes(id){
-    console.log(id);
     localStorage.setItem("id", id);
     window.location.href = 'detalhes.html';
 }
