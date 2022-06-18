@@ -16,6 +16,7 @@ function getFilme(dados) {
         $("#nome").html(dados.title);
         getInfos(dados.id);
         getVideo(dados.id, dados.poster_path);
+        
 }
 
 function getGenero(generos){
