@@ -176,7 +176,7 @@ function adicionaFilmesPesquisa(pesquisa){
                 if(filme.overview != ""){
                     if(filme.poster_path != undefined){
                         filmes +=
-                        `<div style="margin-top:30px; border-color:blue;"class="col-12 col-sm-12 col-md-6 col-lg-4">
+                        `<div style="margin-top:30px; border-color:blue;"class="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <div id="cardFilmePesquisa" class="card">
                                     <img style="width:80%px;"src="${imagePath}${filme.poster_path}"</img>
                                     <p><b> Filme:</b>  ${filme.title}</p>
