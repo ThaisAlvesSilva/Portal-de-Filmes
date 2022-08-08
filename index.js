@@ -236,7 +236,9 @@ function adicionaFilmesNaTela(){
                     }else if(generos[k] == 53){
                         genero += ' Thriller' + ",";
                     }
+
                 }
+                genero = genero.substr(0, genero.length-1); //RETIRANDO A ÚLTIMA VIRGULA DESNECESSÁRIA
                 nomeF = filmesAPI[i].title;
                 idF = filmesAPI[i].id;
                 sinopseF = filmesAPI[i].overview;
